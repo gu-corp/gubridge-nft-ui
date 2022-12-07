@@ -1,7 +1,7 @@
 name: Deploy Test Server
 on:
   push:
-    branches: ['main']
+    branches: ['20221207-nft-default']
 
 env:
   PROJECT_ID: gu-bridge
