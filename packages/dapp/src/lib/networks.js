@@ -117,22 +117,21 @@ const GUSANDBOX_GOERLI_BRIDGE_CONFIG = {
   homeChainId: 99999,
   foreignChainId: 5,
   foreignMediatorAddress:
-    '0x877accD1CBB5A1719abe03172aC31781E046dC81'.toLowerCase(),
+    '0xA7191470eB4B00076cBFace306bC23523b48172A'.toLowerCase(),
   homeMediatorAddress:
-    '0x052122758AB5DBB8003B3F8Ceba3dd61cf8ca919'.toLowerCase(),
-  foreignAmbAddress: '0x0F806D8dd8bb02Ad9dd9bA0e8e351B4319cc45e4'.toLowerCase(),
-  homeAmbAddress: '0xc39eAbae09273F00Ec7e56B6a8C189437a61C9C8'.toLowerCase(),
-  ambLiveMonitorPrefix:
-    'https://alm-gusandbox-goerli-dot-gu-bridge.an.r.appspot.com',
-  foreignBridgeSubgraph: 'cuonghx1108/goerli-gusandbox-nft-4',
-  homeBridgeSubgraph: 'cuonghx-gutech/gusandbox-goerli-nft-4',
-  home721Subgraph: 'cuonghx/gu-bridge-eip721',
-  foreign721Subgraph: 'cuonghx1108/gu-bridge-eip721',
+    '0xab508f88242bB982F7Ab6cEc240ffa2aeA6a0412'.toLowerCase(),
+  foreignAmbAddress: '0xED91CB7A4e839E40584377B1c5204A87D762ddD3'.toLowerCase(),
+  homeAmbAddress: '0x19d7C1D1D8d0d8b3eCed309704Ab5c061a02A7a4'.toLowerCase(),
+  ambLiveMonitorPrefix: 'https://alm.test.nft-bridge.gu.net',
+  foreignBridgeSubgraph: 'cuonghx1108/goerli-sandbox-nft-test-env',
+  homeBridgeSubgraph: 'cuonghx1108/sandbox-goerli-nft-test-env',
+  home721Subgraph: 'cuonghx/gu-bridge-eip721-test',
+  foreign721Subgraph: 'cuonghx1108/gu-bridge-eip721-test',
   home1155Subgraph: 'gulabs/erc1155-subgraph',
   foreign1155Subgraph: 'cuonghx1108/eip1155-goerli',
   claimDisabled: false,
   tokensClaimDisabled: [],
-  tokenFactoryAddress: '0x23e25531f8D4181d054aA6934Ce67DaFeFAcc7fb',
+  tokenFactoryAddress: '0xe2aA208D0147199C0cCB274d18A3166F4963eC50',
 };
 
 const ENABLED_BRIDGES = process.env.REACT_APP_ENABLED_BRIDGES.split(' ').map(
