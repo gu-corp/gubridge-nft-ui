@@ -71,13 +71,13 @@ jobs:
         id: get_version
         run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
 
-      - name: Deploy to Stage EB
+      - name: Deploy to Prod EB
         uses: einaregilsson/beanstalk-deploy@v11
         with:
-          aws_access_key: ${{ secrets.AWS_STG_ACCESS_KEY_ID }}
-          aws_secret_key: ${{ secrets.AWS_STG_SECRET_ACCESS_KEY }}
+          aws_access_key: ${{ secrets.AWS_PRD_ACCESS_KEY_ID }}
+          aws_secret_key: ${{ secrets.AWS_PRD_SECRET_ACCESS_KEY }}
           application_name: bridge-nftui
-          environment_name: nftui-stg-node16
+          environment_name: nftui-prd-node16
           version_label: ${{ steps.get_version.outputs.VERSION }}
           region: ap-northeast-1
           deployment_package: deploy.zip
