@@ -6,7 +6,7 @@ import {
   Text,
   useBreakpointValue,
 } from '@chakra-ui/react';
-import Logo from 'assets/logo.svg';
+import Logo from 'assets/gubridge-logo.svg';
 import { BridgeDropdown } from 'components/common/BridgeDropdown';
 import { UpdateSettings } from 'components/common/UpdateSettings';
 import { WalletSelector } from 'components/common/WalletSelector';
@@ -90,12 +90,12 @@ export const Header = () => {
         <Link to="/">
           <Flex justify="space-around" align="center">
             <Image
-              minW="3rem"
-              w="3rem"
+              minW="10rem"
+              w="10rem"
               src={Logo}
               mr={{ base: 4, md: 2, lg: 4 }}
             />
-            <Text fontWeight="bold">G.U.Bridge NFT</Text>
+            {/* <Text fontWeight="bold">G.U.Bridge NFT</Text> */}
           </Flex>
         </Link>
         <Button
