@@ -8,6 +8,7 @@ import {
 } from '@chakra-ui/react';
 import Logo from 'assets/logo.svg';
 import { BridgeDropdown } from 'components/common/BridgeDropdown';
+import { LanguageDropdown } from 'components/common/LanguageDropdown';
 import { UpdateSettings } from 'components/common/UpdateSettings';
 import { WalletSelector } from 'components/common/WalletSelector';
 import { useWeb3Context } from 'contexts/Web3Context';
@@ -145,6 +146,7 @@ export const Header = () => {
         )}
         <WalletSelector close={() => setOpen(false)} />
         <BridgeDropdown close={() => setOpen(false)} />
+        <LanguageDropdown close={() => setOpen(false)} />
       </Stack>
     </Flex>
   );

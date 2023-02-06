@@ -89,13 +89,12 @@ export const UpdateSettings = ({ close }) => {
             />
             <ModalBody px={6} py={0}>
               <Flex direction="column">
-                {/* <Text mb={2}>Infinite Unlock</Text>
-                <Switch
-                  mb={4}
-                  colorScheme="blue"
-                  isChecked={infiniteUnlock}
-                  onChange={e => setInfiniteUnlock(e.target.checked)}
-                /> */}
+                <Text fontWeight="bold" fontSize="xl" color="black">
+                  Language settings
+                </Text>
+                <Text fontWeight="bold" fontSize="xl" color="black">
+                  Bridge settings
+                </Text>
                 <Text mb={2}>
                   Custom {getNetworkLabel(foreignChainId)} RPC URL
                 </Text>

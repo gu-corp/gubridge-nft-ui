@@ -7,8 +7,10 @@ import { Layout } from 'components/common/Layout';
 import { SettingsProvider } from 'contexts/SettingsContext';
 import { Web3Provider } from 'contexts/Web3Context';
 import React from 'react';
+import { I18nextProvider } from 'react-i18next';
 import { BrowserRouter as Router } from 'react-router-dom';
 
+import i18n from './i18n';
 import { Routes } from './Routes';
 import { theme } from './theme';
 
@@ -36,9 +38,11 @@ export const App = () => (
       <Router>
         <SettingsProvider>
           <Web3Provider>
-            <Layout>
-              <Routes />
-            </Layout>
+            <I18nextProvider i18n={i18n}>
+              <Layout>
+                <Routes />
+              </Layout>
+            </I18nextProvider>
           </Web3Provider>
         </SettingsProvider>
       </Router>
