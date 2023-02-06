@@ -6,7 +6,7 @@ import {
   Text,
   useBreakpointValue,
 } from '@chakra-ui/react';
-import Logo from 'assets/gubridge-logo.svg';
+import Logo from 'assets/gubridge-nft-logo.svg';
 import GUNetLogo from 'assets/gunet-logo.svg';
 import { GithubIcon } from 'icons/GithubIcon';
 import { TwitterIcon } from 'icons/TwitterIcon';

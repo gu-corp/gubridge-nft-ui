@@ -6,7 +6,7 @@ import {
   Text,
   useBreakpointValue,
 } from '@chakra-ui/react';
-import Logo from 'assets/gubridge-logo.svg';
+import Logo from 'assets/gubridge-nft-logo.svg';
 import { BridgeDropdown } from 'components/common/BridgeDropdown';
 import { UpdateSettings } from 'components/common/UpdateSettings';
 import { WalletSelector } from 'components/common/WalletSelector';
