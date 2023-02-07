@@ -2,7 +2,7 @@ import 'focus-visible/dist/focus-visible';
 
 import { ChakraProvider, CSSReset } from '@chakra-ui/react';
 import { css, Global } from '@emotion/react';
-import { ErrorBoundary } from 'components/common/ErrorBoundary';
+import ErrorBoundary from 'components/common/ErrorBoundary';
 import { Layout } from 'components/common/Layout';
 import { SettingsProvider } from 'contexts/SettingsContext';
 import { Web3Provider } from 'contexts/Web3Context';
@@ -34,18 +34,18 @@ export const App = () => (
   <ChakraProvider theme={theme}>
     <CSSReset />
     <Global styles={GlobalStyles} />
-    <ErrorBoundary>
-      <Router>
-        <SettingsProvider>
-          <Web3Provider>
-            <I18nextProvider i18n={i18n}>
+    <I18nextProvider i18n={i18n}>
+      <ErrorBoundary>
+        <Router>
+          <SettingsProvider>
+            <Web3Provider>
               <Layout>
                 <Routes />
               </Layout>
-            </I18nextProvider>
-          </Web3Provider>
-        </SettingsProvider>
-      </Router>
-    </ErrorBoundary>
+            </Web3Provider>
+          </SettingsProvider>
+        </Router>
+      </ErrorBoundary>
+    </I18nextProvider>
   </ChakraProvider>
 );

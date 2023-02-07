@@ -24,8 +24,11 @@ import { useBridgeDirection } from 'hooks/useBridgeDirection';
 import { getGasPrice, getMedianHistoricalEthGasPrice } from 'lib/gasPrice';
 import { getNetworkName, handleWalletError } from 'lib/helpers';
 import React, { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const ConfirmTransferModal = ({ isOpen, onClose }) => {
+  const { t } = useTranslation();
+
   const { isGnosisSafe, account } = useWeb3Context();
 
   const { foreignChainId, getBridgeChainId } = useBridgeDirection();
@@ -77,7 +80,7 @@ export const ConfirmTransferModal = ({ isOpen, onClose }) => {
           mx={{ base: 12, lg: 0 }}
         >
           <ModalHeader p={6}>
-            <Text>Confirm Transfer</Text>
+            <Text>{t('confirm_transfer')}</Text>
           </ModalHeader>
           <ModalCloseButton
             size="lg"
@@ -105,7 +108,7 @@ export const ConfirmTransferModal = ({ isOpen, onClose }) => {
                   maxW="9rem"
                 >
                   <Text color="greyText" fontSize="sm">
-                    From
+                    {t('from')}
                   </Text>
                   <Text fontWeight="500" fontSize="lg">
                     {getNetworkName(chainId)}
@@ -124,7 +127,7 @@ export const ConfirmTransferModal = ({ isOpen, onClose }) => {
                   maxW="9rem"
                 >
                   <Text color="greyText" fontSize="sm">
-                    To
+                    {t('to')}
                   </Text>
                   <Text fontWeight="500" fontSize="lg" textAlign="right">
                     {getNetworkName(getBridgeChainId(chainId))}
@@ -175,7 +178,7 @@ export const ConfirmTransferModal = ({ isOpen, onClose }) => {
                 _hover={{ background: '#bfd3f2' }}
                 color="#687D9D"
               >
-                Cancel
+                {t('cancel')}
               </Button>
               <Button
                 px={12}
@@ -184,7 +187,7 @@ export const ConfirmTransferModal = ({ isOpen, onClose }) => {
                 colorScheme="blue"
                 mt={{ base: 2, md: 0 }}
               >
-                Continue
+                {t('continue')}
               </Button>
             </Flex>
           </ModalFooter>

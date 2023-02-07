@@ -8,18 +8,24 @@ import {
   XDAI_CHAIN_IDS,
 } from 'lib/constants';
 
+import i18n from '../i18n';
+
 export const getWalletProviderName = provider =>
   provider?.connection?.url || null;
 
 export const getNativeCurrency = chainId => nativeCurrencies[chainId || 99999];
 
 export const getNetworkName = chainId =>
-  networkNames[chainId] || 'Unknown Network';
+  networkNames[chainId] || i18n.t('unknown_network');
 
-export const getNetworkLabel = chainId => networkLabels[chainId] || 'Unknown';
+export const getNetworkLabel = chainId =>
+  networkLabels[chainId] || i18n.t('unknown');
 
 export const getNetworkCurrency = chainId =>
-  networkCurrencies[chainId] || { name: 'Unknown', symbol: 'Unknown' };
+  networkCurrencies[chainId] || {
+    name: i18n.t('unknown'),
+    symbol: i18n.t('unknown'),
+  };
 
 export const getRPCUrl = (chainId, returnAsArray = false) =>
   returnAsArray
@@ -65,18 +71,20 @@ export const getRPCKeys = bridgeDirection => {
   }
 };
 
-const IMPOSSIBLE_ERROR =
-  'Unable to perform the operation. Reload the application and try again.';
+const IMPOSSIBLE_ERROR = i18n.t(
+  'unable_to_perform_the_operation_reload_the_application_and_try_again',
+);
 
-const TRANSACTION_REPLACED_ERROR =
-  'Transaction was replaced by another. Reload the application and find the transaction in the history page.';
+const TRANSACTION_REPLACED_ERROR = i18n.t(
+  'transaction_was_replaced_by_another_reload_the_application_and_find_the_transaction_in_the_history_page',
+);
 
 export const handleWalletError = (error, showError) => {
   if (error?.message && error?.message.length <= 120) {
     showError(error.message);
   } else if (
     error?.message &&
-    error?.message.toLowerCase().includes('transaction was replaced')
+    error?.message.toLowerCase().includes(i18n.t('transaction_was_replaced'))
   ) {
     showError(TRANSACTION_REPLACED_ERROR);
   } else {

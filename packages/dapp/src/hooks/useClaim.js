@@ -7,8 +7,10 @@ import { getMessage, messageCallStatus } from 'lib/message';
 import { addChainToMetaMask } from 'lib/metamask';
 import { getEthersProvider } from 'lib/providers';
 import { useCallback, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const useExecution = () => {
+  const { t } = useTranslation();
   const { foreignChainId, foreignAmbAddress, foreignAmbVersion } =
     useBridgeDirection();
   const { providerChainId, ethersProvider, isMetamask } = useWeb3Context();
@@ -58,9 +60,9 @@ const useExecution = () => {
             }
           }
           showError(
-            `Wrong network. Please connect your wallet to ${getNetworkName(
-              foreignChainId,
-            )}.`,
+            `${t(
+              'wrong_network_please_connect_your_wallet_to',
+            )} ${getNetworkName(foreignChainId)}.`,
           );
         } else {
           const tx = await executeSignatures(
@@ -77,6 +79,7 @@ const useExecution = () => {
       }
     },
     [
+      t,
       ethersProvider,
       isMetamask,
       foreignChainId,
@@ -100,6 +103,7 @@ const useExecution = () => {
 };
 
 export const useClaim = () => {
+  const { t } = useTranslation();
   const {
     homeChainId,
     homeAmbAddress,
@@ -114,7 +118,7 @@ export const useClaim = () => {
     async (txHash, txMessage) => {
       if (providerChainId !== foreignChainId && !isMetamask) {
         throw Error(
-          `Wrong network. Please connect your wallet to ${getNetworkName(
+          `${t('wrong_network_please_connect_your_wallet_to')} ${getNetworkName(
             foreignChainId,
           )}.`,
         );
@@ -141,6 +145,7 @@ export const useClaim = () => {
       return executeCallback(message, providerChainId === homeChainId);
     },
     [
+      t,
       isMetamask,
       executeCallback,
       homeChainId,

@@ -12,8 +12,10 @@ import {
 import { TokenDisplay } from 'components/common/TokenDisplay';
 import { useUserTokens } from 'hooks/useUserTokens';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const BridgeTokensDisplay = () => {
+  const { t } = useTranslation();
   const { eip721Tokens, fetching } = useUserTokens();
 
   return (
@@ -26,7 +28,7 @@ export const BridgeTokensDisplay = () => {
           _hover={{ color: 'blue.500', bg: 'blackAlpha.50' }}
         >
           <Text fontWeight="bold" fontSize="xl" color="black">
-            ERC-721 Tokens
+            {t('erc_721_tokens')}
           </Text>
           <AccordionIcon boxSize="1.5rem" />
         </AccordionButton>

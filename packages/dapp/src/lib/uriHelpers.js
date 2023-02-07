@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { DEFAULT_IMAGE_TIMEOUT } from 'lib/constants';
 
+import i18n from '../i18n';
+
 const openseaAxios = axios.create({
   timeout: DEFAULT_IMAGE_TIMEOUT,
   headers: {
@@ -104,7 +106,7 @@ export const fetchImageUri = async tokenUri => {
     return uriFromJson(data);
   } catch (err) {
     // eslint-disable-next-line no-console
-    console.error('Error fetching tokenUri', tokenUri, err);
+    console.error(i18n.t('error_fetching_token_uri'), tokenUri, err);
     return '';
   }
 };

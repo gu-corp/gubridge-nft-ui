@@ -11,8 +11,10 @@ import {
 } from 'lib/message';
 import { getEthersProvider } from 'lib/providers';
 import { useCallback, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const useTransactionStatus = setMessage => {
+  const { t } = useTranslation();
   const { homeChainId, getBridgeChainId, getAMBAddress } = useBridgeDirection();
   const { needsClaiming } = useBridgeContext();
   const { ethersProvider, providerChainId: chainId } = useWeb3Context();
@@ -54,7 +56,7 @@ export const useTransactionStatus = setMessage => {
         setConfirmations(numConfirmations);
         if (enoughConfirmations) {
           if (needsClaiming) {
-            setLoadingText('Collecting Signatures');
+            setLoadingText(t('collecting_signatures'));
             const message = await getMessage(
               isHome,
               ethersProvider,
@@ -104,17 +106,18 @@ export const useTransactionStatus = setMessage => {
     }
     return false;
   }, [
-    isHome,
-    needsClaiming,
-    txHash,
     ethersProvider,
+    txHash,
     totalConfirms,
-    completeReceipt,
-    incompleteReceipt,
-    chainId,
-    bridgeChainId,
+    needsClaiming,
+    t,
+    isHome,
     getAMBAddress,
+    chainId,
+    incompleteReceipt,
     setMessage,
+    bridgeChainId,
+    completeReceipt,
   ]);
 
   useEffect(() => {
@@ -129,7 +132,7 @@ export const useTransactionStatus = setMessage => {
       });
     };
 
-    setLoadingText('Waiting for Block Confirmations');
+    setLoadingText(t('waiting_for_block_confirmations'));
     let isSubscribed = true;
 
     const updateStatus = async () => {
@@ -149,7 +152,7 @@ export const useTransactionStatus = setMessage => {
       isSubscribed = false;
       unsubscribe();
     };
-  }, [loading, txHash, ethersProvider, getStatus]);
+  }, [loading, txHash, ethersProvider, getStatus, t]);
 
   useEffect(() => {
     setNeedsConfirmation(needs => chainId === homeChainId && needs);

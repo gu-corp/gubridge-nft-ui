@@ -16,10 +16,13 @@ import { useBridgeDirection } from 'hooks/useBridgeDirection';
 import { HistoryIcon } from 'icons/HistoryIcon';
 import { PlusIcon } from 'icons/PlusIcon';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link, useHistory } from 'react-router-dom';
 
 const HistoryLink = ({ close }) => {
   const history = useHistory();
+  const { t } = useTranslation();
+
   return (
     <Button
       variant="ghost"
@@ -33,13 +36,15 @@ const HistoryLink = ({ close }) => {
       px={2}
       fontSize="sm"
     >
-      <Text color="black"> History</Text>
+      <Text color="black">{t('history')}</Text>
     </Button>
   );
 };
 
 const CreateNFT = ({ close }) => {
   const history = useHistory();
+  const { t } = useTranslation();
+
   return (
     <Button
       variant="ghost"
@@ -53,12 +58,13 @@ const CreateNFT = ({ close }) => {
       px={2}
       fontSize="sm"
     >
-      <Text color="black"> Create NFT</Text>
+      <Text color="black">{t('create_nft')}</Text>
     </Button>
   );
 };
 
 export const Header = () => {
+  const { t } = useTranslation();
   const { homeChainId, foreignChainId } = useBridgeDirection();
   const { account, providerChainId } = useWeb3Context();
   const [isOpen, setOpen] = useState(false);
@@ -110,13 +116,13 @@ export const Header = () => {
         >
           {!isOpen && (
             <svg fill="currentColor" width="1.5rem" viewBox="0 0 20 20">
-              <title>Menu</title>
+              <title>{t('menu')}</title>
               <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
             </svg>
           )}
           {isOpen && (
             <svg width="1.25rem" viewBox="0 0 18 18" fill="none">
-              <title>Close</title>
+              <title>{t('close')}</title>
               <path
                 fillRule="evenodd"
                 clipRule="evenodd"

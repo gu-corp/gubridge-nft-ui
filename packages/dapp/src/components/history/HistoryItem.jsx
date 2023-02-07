@@ -15,6 +15,7 @@ import { useClaim } from 'hooks/useClaim';
 import { isRevertedError, TOKENS_CLAIMED } from 'lib/amb';
 import { getExplorerUrl, handleWalletError, logError } from 'lib/helpers';
 import React, { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const shortenHash = hash =>
   `${hash.slice(0, 6)}...${hash.slice(hash.length - 4, hash.length)}`;
@@ -43,7 +44,7 @@ const networkTags = {
   42: <Tag bg="#5A74DA" txt="Kovan" />,
   77: <Tag bg="#4DA9A6" txt="POA Sokol" />,
   56: <Tag bg="#5A74DA" txt="BSC" />,
-  99999: <Tag bg="#4DA9A6" txt="GU Sandbox" />,
+  99999: <Tag bg="#4DA9A6" txt="G.U.Sandbox" />,
   3: <Tag bg="#5A74DA" txt="Ropsten" />,
   5: <Tag bg="#5A74DA" txt="Görli" />,
 };
@@ -61,6 +62,7 @@ export const HistoryItem = ({
   },
   handleClaimError,
 }) => {
+  const { t } = useTranslation();
   const { chainId } = tokens;
 
   const { getBridgeChainId, getMonitorUrl } = useBridgeDirection();
@@ -136,13 +138,13 @@ export const HistoryItem = ({
       >
         <Flex align="center" justify="space-between" mb={{ base: 1, md: 0 }}>
           <Text display={{ base: 'inline-block', md: 'none' }} color="greyText">
-            Date
+            {t('date')}
           </Text>
           <Text my="auto">{timestampString}</Text>
         </Flex>
         <Flex align="center" justify="space-between" mb={{ base: 1, md: 0 }}>
           <Text display={{ base: 'inline-block', md: 'none' }} color="greyText">
-            Direction
+            {t('direction')}
           </Text>
           <Flex align="center">
             {getNetworkTag(chainId)}
@@ -156,7 +158,7 @@ export const HistoryItem = ({
           mb={{ base: 1, md: 0 }}
         >
           <Text display={{ base: 'inline-block', md: 'none' }} color="greyText">
-            Sending Tx
+            {t('sending_tx')}
           </Text>
           <Link
             color="blue.500"
@@ -175,7 +177,7 @@ export const HistoryItem = ({
           mb={{ base: 1, md: 0 }}
         >
           <Text display={{ base: 'inline-block', md: 'none' }} color="greyText">
-            Receiving Tx
+            {t('receiving_tx')}
           </Text>
           {receivingTx ? (
             <Link
@@ -204,7 +206,7 @@ export const HistoryItem = ({
               <CheckIcon color="blue.500" boxSize="0.75rem" />
             )}
             <Text ml="0.25rem" color={failed ? 'red.500' : 'blue.500'}>
-              {failed ? 'Failed' : 'Claimed'}
+              {failed ? t('failed') : t('claimed')}
             </Text>
           </Flex>
         ) : (
@@ -216,13 +218,13 @@ export const HistoryItem = ({
               onClick={claimTokens}
               isLoading={claiming || executing}
             >
-              Claim
+              {t('claim')}
             </Button>
           </Flex>
         )}
       </Grid>
       <Flex mt="4" bg="#EEf4FD" borderRadius="1rem" p="4" direction="column">
-        <Text> Items </Text>
+        <Text> {t('items')} </Text>
         <Flex
           w="100%"
           direction="column"

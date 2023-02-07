@@ -6,9 +6,11 @@ import { TelegramIcon } from 'icons/TelegramIcon';
 import { TwitterIcon } from 'icons/TwitterIcon';
 import { XDaiIcon } from 'icons/XDaiIcon';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
 export const Footer = () => {
+  const { t } = useTranslation();
   const smallScreen = useBreakpointValue({ base: true, sm: false });
   return (
     <Flex
@@ -81,7 +83,7 @@ export const Footer = () => {
             _hover={{ color: 'blue.500' }}
             transition="0.25s"
           >
-            <Text>Built by</Text>
+            <Text>{t('built_by')}</Text>
             <RaidGuildIcon boxSize={16} ml={2} />
           </Flex>
         </a>

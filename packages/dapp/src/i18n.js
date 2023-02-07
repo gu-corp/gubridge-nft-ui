@@ -18,7 +18,6 @@ i18n
     fallbackLng: ['en', 'ja'],
     debug: false,
     supportedLngs: ['en', 'ja'],
-    lng: 'en',
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
     },

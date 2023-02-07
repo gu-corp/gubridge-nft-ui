@@ -36,7 +36,7 @@ export const ActionButton = () => {
     if (unlocked) {
       buttonColor = needsClaiming ? 'purple.300' : 'blue.500';
       buttonHoverColor = needsClaiming ? 'purple.500' : 'blue.700';
-      buttonText = needsClaiming ? 'Request' : t('transfer');
+      buttonText = needsClaiming ? t('request') : t('transfer');
       buttonIcon = TransferIcon;
     }
     return {
@@ -65,14 +65,14 @@ export const ActionButton = () => {
 
   const valid = useCallback(() => {
     if (!ethersProvider) {
-      showError('Please connect wallet');
+      showError(t('please_connect_wallet'));
     } else if (receiver ? !utils.isAddress(receiver) : isGnosisSafe) {
-      showError(`Please specify a valid recipient address`);
+      showError(t('please_specify_a_valid_recipient_address'));
     } else if (tokens) {
       return true;
     }
     return false;
-  }, [ethersProvider, tokens, receiver, isGnosisSafe, showError]);
+  }, [t, ethersProvider, tokens, receiver, isGnosisSafe, showError]);
 
   const onClick = useCallback(() => {
     if (unlocked) {

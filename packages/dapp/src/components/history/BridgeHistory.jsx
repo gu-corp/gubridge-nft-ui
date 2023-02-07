@@ -15,11 +15,13 @@ import {
   getMedianHistoricalEthGasPrice,
 } from 'lib/gasPrice';
 import React, { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Redirect } from 'react-router-dom';
 
 const TOTAL_PER_PAGE = 20;
 
 export const BridgeHistory = ({ page }) => {
+  const { t } = useTranslation();
   const [onlyUnReceived, setOnlyUnReceived] = useState(false);
   const [claimErrorShow, setClaimErrorShow] = useState(false);
   const { foreignChainId } = useBridgeDirection();
@@ -83,7 +85,7 @@ export const BridgeHistory = ({ page }) => {
       <ManualClaim handleClaimError={handleClaimError} />
       <Flex justify="space-between" align="center" mb={4}>
         <Text fontSize="xl" fontWeight="bold">
-          History
+          {t('history')}
         </Text>
         <Checkbox
           isChecked={onlyUnReceived}
@@ -93,7 +95,7 @@ export const BridgeHistory = ({ page }) => {
           size="lg"
           variant="solid"
         >
-          <Text fontSize="sm">Show only unreceived</Text>
+          <Text fontSize="sm">{t('show_only_unreceived')}</Text>
         </Checkbox>
       </Flex>
 
@@ -111,11 +113,11 @@ export const BridgeHistory = ({ page }) => {
             mb={4}
             display={{ base: 'none', md: 'grid' }}
           >
-            <Text>Date</Text>
-            <Text>Direction</Text>
-            <Text textAlign="center">Sending Tx</Text>
-            <Text textAlign="center">Receiving Tx</Text>
-            <Text textAlign="right">Status</Text>
+            <Text>{t('date')}</Text>
+            <Text>{t('direction')}</Text>
+            <Text textAlign="center">{t('sending_tx')}</Text>
+            <Text textAlign="center">{t('receiving_tx')}</Text>
+            <Text textAlign="right">{t('status')}</Text>
           </Grid>
           {displayHistory.map(item => (
             <HistoryItem

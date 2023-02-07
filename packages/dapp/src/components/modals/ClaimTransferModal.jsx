@@ -31,8 +31,10 @@ import {
 import { getNetworkName, handleWalletError, logError } from 'lib/helpers';
 import { messageCallStatus } from 'lib/message';
 import React, { useCallback, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const ClaimTransferModal = ({ message, setMessage }) => {
+  const { t } = useTranslation();
   const { ethersProvider } = useWeb3Context();
   const { homeChainId, foreignChainId, foreignAmbAddress } =
     useBridgeDirection();
@@ -125,7 +127,7 @@ export const ClaimTransferModal = ({ message, setMessage }) => {
           mx={{ base: 12, lg: 0 }}
         >
           <ModalHeader p={6}>
-            <Text>Claim Your Tokens</Text>
+            <Text>{t('claim_your_tokens')}</Text>
             <Image src={ClaimTokenImage} w="100%" mt={4} />
           </ModalHeader>
           <ModalCloseButton
@@ -150,11 +152,9 @@ export const ClaimTransferModal = ({ message, setMessage }) => {
                 <Alert status="info" borderRadius={5}>
                   <AlertIcon minWidth="20px" />
                   <Text fontSize="small">
-                    {`The claim process may take a variable period of time on ${getNetworkName(
-                      foreignChainId,
-                    )}${' '}
-                    depending on network congestion. You will receive your tokens${' '}
-                    once the claim is processed`}
+                    {t('claim_notification_description', {
+                      foreignNetworkName: getNetworkName(foreignChainId),
+                    })}
                   </Text>
                 </Alert>
               </Flex>
@@ -185,7 +185,7 @@ export const ClaimTransferModal = ({ message, setMessage }) => {
                 _hover={{ background: '#bfd3f2' }}
                 color="#687D9D"
               >
-                Cancel
+                {t('cancel')}
               </Button>
               <Button
                 px={12}
@@ -195,7 +195,7 @@ export const ClaimTransferModal = ({ message, setMessage }) => {
                 isLoading={claiming || executing}
                 isDisabled={executed}
               >
-                Claim
+                {t('claim')}
               </Button>
             </Flex>
           </ModalFooter>

@@ -22,6 +22,7 @@ import { useBridgeDirection } from 'hooks/useBridgeDirection';
 import { useTransactionStatus } from 'hooks/useTransactionStatus';
 import { LOCAL_STORAGE_KEYS } from 'lib/constants';
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const { DONT_SHOW_CLAIMS } = LOCAL_STORAGE_KEYS;
 
@@ -40,6 +41,7 @@ const BridgeLoader = ({
   getMonitorUrl,
   chainId,
 }) => {
+  const { t } = useTranslation();
   const showConfirmations = confirmations < totalConfirms;
   const displayConfirms = showConfirmations ? confirmations : totalConfirms;
 
@@ -117,10 +119,12 @@ const BridgeLoader = ({
                     mt={{ base: 2, md: 0 }}
                   >
                     <Text textAlign="center">
-                      {`${loadingText || 'Waiting for Block Confirmations'}...`}
+                      {`${
+                        loadingText || t('waiting_for_block_confirmations')
+                      }...`}
                     </Text>
                     <Text color="grey" textAlign="center">
-                      {'Monitor at ALM '}
+                      {t('monitor_at_alm')}
                       <Link
                         href={getMonitorUrl(chainId, txHash)}
                         rel="noreferrer noopener"
@@ -139,7 +143,7 @@ const BridgeLoader = ({
               <Flex direction="column" align="center" justify="center">
                 <Image src={LoadingImage} mb={4} />
                 <Text color="white" fontWeight="bold">
-                  Loading ...
+                  {t('loading')}
                 </Text>
               </Flex>
             </ModalContent>

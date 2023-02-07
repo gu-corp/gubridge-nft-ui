@@ -3,6 +3,8 @@ import { BigNumber, utils } from 'ethers';
 import { GasPriceOracle } from 'gas-price-oracle';
 import { logDebug, logError } from 'lib/helpers';
 
+import i18n from '../i18n';
+
 const lowest = arr =>
   arr.reduce((low, item) => (low > item ? item : low), arr[0]);
 
@@ -19,7 +21,7 @@ const gasPriceFromSupplier = async () => {
     const json = await gasPriceOracle.fetchGasPricesOffChain();
 
     if (!json) {
-      logError(`Response from Oracle didn't include gas price`);
+      logError(i18n.t('response_from_oracle_did_not_include_eth_price'));
       return null;
     }
 
@@ -37,7 +39,7 @@ const gasPriceFromSupplier = async () => {
     }
     return null;
   } catch (e) {
-    logError(`Gas Price Oracle not available. ${e.message}`);
+    logError(`${i18n.t('gas_price_oracle_not_available')} ${e.message}`);
   }
   return null;
 };
@@ -97,7 +99,7 @@ class GasPriceStore {
       logError({ gasPriceError });
     }
 
-    logDebug('Updated Gas Price', { gasPrices });
+    logDebug(i18n.t('updated_eth_price'), { gasPrices });
 
     setTimeout(() => this.updateGasPrice(), this.updateInterval);
   }
@@ -107,7 +109,7 @@ class GasPriceStore {
       `https://ethgas.watch/api/gas/trend?hours=168`,
     );
     if (response.status !== 200) {
-      throw new Error(`Fetch gasPrice from ethgasAPI failed!`);
+      throw new Error(i18n.t('fetch_gas_price_from_ethgas_api_failed'));
     }
     const { normal } = response.data;
     this.medianHistoricalPrice = utils.parseUnits(
