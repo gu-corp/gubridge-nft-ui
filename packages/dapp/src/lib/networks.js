@@ -65,7 +65,7 @@ const GUSANDBOX_GOERLI_BRIDGE_STAGE_CONFIG = {
   foreign1155Subgraph: '',
   claimDisabled: false,
   tokensClaimDisabled: [],
-  tokenFactoryAddress: '0x3fD323734104Bf4FdE0E60E620B94051787F14A3',
+  tokenFactoryAddress: '0x284fB7193f686f7c9d3Aa8E1Bb1B68e81C85C7A3',
 };
 
 const ENABLED_BRIDGES = process.env.REACT_APP_ENABLED_BRIDGES.split(' ').map(
