@@ -64,7 +64,7 @@ jobs:
           REACT_APP_VERSION: "1.0.0"
 
       - name: Generate deployment package
-        run: cd packages/dapp && zip -r deploy.zip build package.json package-lock.json
+        run: cd packages/dapp && mv package-copy.json package.json && zip -r deploy.zip build package.json package-lock.json
       
       - name: Upload Release Asset
         uses: actions/upload-release-asset@v1
