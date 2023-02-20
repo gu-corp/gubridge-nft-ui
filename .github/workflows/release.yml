@@ -46,7 +46,7 @@ jobs:
       - run: npm run dapp:build
         env:
           REACT_APP_DEFAULT_BRIDGE_DIRECTION: "gusandbox-goerli-stage"
-          REACT_APP_ENABLED_BRIDGES: "gusandbox-goerli"
+          REACT_APP_ENABLED_BRIDGES: "gusandbox-goerli-stage"
           REACT_APP_GAS_PRICE_SUPPLIER_URL: "https://gasprice.poa.network/"
           REACT_APP_GAS_PRICE_SPEED_TYPE: "standard"
           REACT_APP_GAS_PRICE_FALLBACK_GWEI: "50"
