@@ -61,7 +61,7 @@ jobs:
           REACT_APP_GRAPH_HEALTH_THRESHOLD_BLOCKS: "10"
           REACT_APP_GUSANBOX_RPC_URL: "https://sandbox1.japanopenchain.org:8545/"
           REACT_APP_GOERLI_RPC_URL: "https://eth-goerli.g.alchemy.com/v2/3dILjPem0lnHDrK2HCxbM5YwIN7w7KY5/"
-          REACT_APP_VERSION: "1.0.0"
+          REACT_APP_VERSION: $npm_package_version
 
       - name: Generate deployment package
         run: cd packages/dapp && mv package-copy.json package.json && zip -r deploy.zip build package.json package-lock.json
