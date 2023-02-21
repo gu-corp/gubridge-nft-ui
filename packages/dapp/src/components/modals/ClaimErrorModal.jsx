@@ -16,8 +16,10 @@ import BlueTickImage from 'assets/blue-tick.svg';
 import { useBridgeDirection } from 'hooks/useBridgeDirection';
 import { getNetworkName } from 'lib/helpers';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const ClaimErrorModal = ({ onClose, claimErrorShow }) => {
+  const { t } = useTranslation();
   const { foreignChainId } = useBridgeDirection();
   return (
     <Modal isOpen={claimErrorShow} onClose={onClose} isCentered>
@@ -29,7 +31,7 @@ export const ClaimErrorModal = ({ onClose, claimErrorShow }) => {
           mx={{ base: 12, lg: 0 }}
         >
           <ModalHeader p={6} display="flex" alignItems="center">
-            <Text>Transfer done already</Text>
+            <Text>{t('transfer_done_already')}</Text>
             <Image src={BlueTickImage} ml={2} width="20px" height="20px" />
           </ModalHeader>
           <ModalCloseButton
@@ -43,7 +45,9 @@ export const ClaimErrorModal = ({ onClose, claimErrorShow }) => {
             <Flex align="center" direction="column">
               <Box w="100%">
                 <Text as="span">
-                  The transfer was already executed. Check for your token in{' '}
+                  {t(
+                    'the_transfer_was_already_executed_check_for_your_token_in',
+                  )}{' '}
                   <strong>{getNetworkName(foreignChainId)}</strong>.
                 </Text>
               </Box>
@@ -63,7 +67,7 @@ export const ClaimErrorModal = ({ onClose, claimErrorShow }) => {
                 w="100%"
                 onClick={onClose}
               >
-                Understood
+                {t('understood')}
               </Button>
             </Flex>
           </ModalFooter>

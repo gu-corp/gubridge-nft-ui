@@ -13,8 +13,10 @@ import { WalletIcon } from 'icons/WalletIcon';
 import { getNetworkLabel, getNetworkName } from 'lib/helpers';
 import { getTruncatedAddress } from 'lib/stringHelpers';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const WalletSelector = ({ close }) => {
+  const { t } = useTranslation();
   const { disconnect, account, providerChainId } = useWeb3Context();
 
   const placement = useBreakpointValue({ base: 'bottom', md: 'bottom-end' });
@@ -55,7 +57,7 @@ export const WalletSelector = ({ close }) => {
               fontWeight="bold"
             >
               <Text mb={{ base: 4, md: undefined }}>
-                Connected to {getNetworkName(providerChainId)}
+                {t('connected_to')} {getNetworkName(providerChainId)}
               </Text>
               <Button
                 colorScheme="blue"
@@ -64,7 +66,7 @@ export const WalletSelector = ({ close }) => {
                   close();
                 }}
               >
-                <Text> Disconnect </Text>
+                <Text> {t('disconnect')} </Text>
               </Button>
             </Flex>
           </PopoverBody>

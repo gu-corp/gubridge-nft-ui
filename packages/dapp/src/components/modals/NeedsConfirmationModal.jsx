@@ -18,11 +18,13 @@ import { useBridgeDirection } from 'hooks/useBridgeDirection';
 import { useRenderChain } from 'hooks/useRenderChain';
 import { getNetworkName } from 'lib/helpers';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const NeedsConfirmationModal = ({
   setNeedsConfirmation,
   setMessage,
 }) => {
+  const { t } = useTranslation();
   const { foreignChainId } = useBridgeDirection();
   const { setTxHash } = useBridgeContext();
 
@@ -46,7 +48,7 @@ export const NeedsConfirmationModal = ({
           mx={{ base: 12, lg: 0 }}
         >
           <ModalHeader p={6}>
-            <Text>Claim Your Tokens</Text>
+            <Text>{t('claim_your_tokens')}</Text>
             <Image src={ChangeNetworkImage} w="100%" mt={4} />
           </ModalHeader>
           <ModalCloseButton
@@ -60,7 +62,7 @@ export const NeedsConfirmationModal = ({
             <Flex align="center" direction="column">
               <Box w="100%" fontSize="sm" color="black">
                 <Text as="span">
-                  Please switch the network in your wallet to
+                  {t('please_switch_the_network_in_your_wallet_to')}
                 </Text>
                 {renderChain(foreignChainId)}
               </Box>
@@ -68,9 +70,9 @@ export const NeedsConfirmationModal = ({
                 <Alert status="info" borderRadius={5}>
                   <AlertIcon minWidth="20px" />
                   <Text fontSize="small">
-                    After you switch networks, you will complete a second
-                    transaction on {getNetworkName(foreignChainId)} to claim
-                    your tokens.
+                    {t('claim_warning', {
+                      foreignNetworkName: getNetworkName(foreignChainId),
+                    })}
                   </Text>
                 </Alert>
               </Flex>

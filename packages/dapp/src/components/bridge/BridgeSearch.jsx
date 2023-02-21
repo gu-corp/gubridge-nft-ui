@@ -18,6 +18,7 @@ import {
 import { TokenDisplay } from 'components/common/TokenDisplay';
 import { useBridgeContext } from 'contexts/BridgeContext';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const useInputSize = () => {
   const inputSize = useBreakpointValue({ base: 'md', md: 'lg' });
@@ -57,6 +58,7 @@ export const BridgeSearch = () => {
   const [searching] = useState(false);
   const { inputSize, inputHeight, inputLeftPadding } = useInputSize();
   const showTokens = chosenTokens.length > 0;
+  const { t } = useTranslation();
 
   return (
     <>
@@ -71,7 +73,7 @@ export const BridgeSearch = () => {
                 _hover={{ color: 'blue.500', bg: 'blackAlpha.50' }}
               >
                 <Text fontWeight="bold" fontSize="xl" color="black">
-                  Selected Tokens
+                  {t('selected_token')}
                 </Text>
                 <AccordionIcon boxSize="1.5rem" />
               </AccordionButton>
@@ -98,7 +100,7 @@ export const BridgeSearch = () => {
           border="0"
           bg="white"
           boxShadow="0px 15px 30px rgba(204, 218, 238, 0.8)"
-          placeholder="Search ..."
+          placeholder={t('search')}
           _placeholder={{ color: 'greyText', fontWeight: 500 }}
           _focus={{ boxShadow: '0 0 0 3px rgba(66, 153, 225, 0.6)' }}
           color="black"

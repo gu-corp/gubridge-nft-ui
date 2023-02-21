@@ -1,7 +1,10 @@
 import { Contract, utils } from 'ethers';
 
-export const NOT_ENOUGH_COLLECTED_SIGNATURES =
-  'Transaction to the bridge is found but oracles’ confirmations are not collected yet. Wait for a minute and try again.';
+import i18n from '../i18n';
+
+export const NOT_ENOUGH_COLLECTED_SIGNATURES = i18n.t(
+  'transaction_to_the_bridge_is_found_but_oracles_confirmations_are_not_collected_yet_wait_for_a_minute_and_try_again',
+);
 
 export const getMessageData = async (
   isHome,
@@ -21,18 +24,20 @@ export const getMessageData = async (
     try {
       receipt = await ethersProvider.getTransactionReceipt(txHash);
     } catch (error) {
-      throw Error('Invalid hash.');
+      throw Error(i18n.t('invalid_hash'));
     }
   }
   if (!receipt || !receipt.logs) {
-    throw Error('No transaction found.');
+    throw Error(i18n.t('no_transaction_found'));
   }
   const eventFragment = abi.events[Object.keys(abi.events)[0]];
   const eventTopic = abi.getEventTopic(eventFragment);
   const event = receipt.logs.find(e => e.topics[0] === eventTopic);
   if (!event) {
     throw Error(
-      'It is not a bridge transaction. Specify hash of a transaction sending tokens to the bridge.',
+      i18n.t(
+        'it_is_not_a_bridge_transaction_specify_hash_of_a_transaction_sending_tokens_to_the_bridge',
+      ),
     );
   }
   const decodedLog = abi.decodeEventLog(

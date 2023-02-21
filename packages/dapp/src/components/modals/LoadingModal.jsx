@@ -14,6 +14,7 @@ import { useBridgeContext } from 'contexts/BridgeContext';
 import { useWeb3Context } from 'contexts/Web3Context';
 import { useBridgeDirection } from 'hooks/useBridgeDirection';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const getTransactionString = hash => {
   if (!hash) return 'here';
@@ -22,6 +23,7 @@ const getTransactionString = hash => {
 };
 
 export const LoadingModal = ({ loadingText, txHash, chainId }) => {
+  const { t } = useTranslation();
   const { getMonitorUrl } = useBridgeDirection();
   const { providerChainId } = useWeb3Context();
   const { loading } = useBridgeContext();
@@ -95,7 +97,7 @@ export const LoadingModal = ({ loadingText, txHash, chainId }) => {
               <Flex direction="column" align="center" justify="center">
                 <Image src={LoadingImage} mb={4} />
                 <Text color="white" fontWeight="bold">
-                  Loading ...
+                  {t('loading')}
                 </Text>
               </Flex>
             </ModalContent>

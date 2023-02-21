@@ -8,16 +8,20 @@ import {
 } from '@chakra-ui/react';
 import Logo from 'assets/gubridge-nft-logo.svg';
 import { BridgeDropdown } from 'components/common/BridgeDropdown';
+import { LanguageDropdown } from 'components/common/LanguageDropdown';
 import { UpdateSettings } from 'components/common/UpdateSettings';
 import { WalletSelector } from 'components/common/WalletSelector';
 import { useWeb3Context } from 'contexts/Web3Context';
 import { useBridgeDirection } from 'hooks/useBridgeDirection';
 import { HistoryIcon } from 'icons/HistoryIcon';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link, useHistory } from 'react-router-dom';
 
 const HistoryLink = ({ close }) => {
   const history = useHistory();
+  const { t } = useTranslation();
+
   return (
     <Button
       variant="ghost"
@@ -31,12 +35,13 @@ const HistoryLink = ({ close }) => {
       px={2}
       fontSize="sm"
     >
-      <Text color="black"> History</Text>
+      <Text color="black">{t('history')}</Text>
     </Button>
   );
 };
 
 export const Header = () => {
+  const { t } = useTranslation();
   const { homeChainId, foreignChainId } = useBridgeDirection();
   const { account, providerChainId } = useWeb3Context();
   const [isOpen, setOpen] = useState(false);
@@ -88,13 +93,13 @@ export const Header = () => {
         >
           {!isOpen && (
             <svg fill="currentColor" width="1.5rem" viewBox="0 0 20 20">
-              <title>Menu</title>
+              <title>{t('menu')}</title>
               <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
             </svg>
           )}
           {isOpen && (
             <svg width="1.25rem" viewBox="0 0 18 18" fill="none">
-              <title>Close</title>
+              <title>{t('close')}</title>
               <path
                 fillRule="evenodd"
                 clipRule="evenodd"
@@ -123,6 +128,7 @@ export const Header = () => {
         )}
         <WalletSelector close={() => setOpen(false)} />
         <BridgeDropdown close={() => setOpen(false)} />
+        <LanguageDropdown close={() => setOpen(false)} />
       </Stack>
     </Flex>
   );

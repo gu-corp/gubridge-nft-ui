@@ -11,8 +11,10 @@ import { useClaim } from 'hooks/useClaim';
 import { isRevertedError, TOKENS_CLAIMED } from 'lib/amb';
 import { handleWalletError, logError } from 'lib/helpers';
 import React, { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const ManualClaim = ({ handleClaimError }) => {
+  const { t } = useTranslation();
   const [txHash, setTxHash] = useState('');
   const [loading, setLoading] = useState(false);
   const { claim, executing } = useClaim();
@@ -72,10 +74,10 @@ export const ManualClaim = ({ handleClaimError }) => {
         mb={{ base: '2', lg: '0' }}
       >
         <Text color="black">
-          Can&apos;t find your transfer to claim tokens?
+          {t('can_not_find_your_transfer_to_claim_tokens')}
         </Text>
         <Text color="greyText">
-          Enter the transaction hash where the token transfer happened{' '}
+          {t('enter_the_transaction_hash_where_the_token_transfer_happened')}{' '}
         </Text>
       </Flex>
       <InputGroup>
@@ -83,7 +85,7 @@ export const ManualClaim = ({ handleClaimError }) => {
           borderColor="#DAE3F0"
           bg="white"
           fontSize="sm"
-          placeholder="Transaction Hash"
+          placeholder={t('transaction_hash')}
           value={txHash}
           onChange={e => setTxHash(e.target.value)}
           pr="6rem"
@@ -97,7 +99,7 @@ export const ManualClaim = ({ handleClaimError }) => {
             isDisabled={!txHash}
             isLoading={loading || executing}
           >
-            Claim
+            {t('claim')}
           </Button>
         </InputRightElement>
       </InputGroup>

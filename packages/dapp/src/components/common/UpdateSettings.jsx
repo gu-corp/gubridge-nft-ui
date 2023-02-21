@@ -21,9 +21,12 @@ import { useBridgeDirection } from 'hooks/useBridgeDirection';
 import { SettingsIcon } from 'icons/SettingsIcon';
 import { getNetworkLabel } from 'lib/helpers';
 import React, { useCallback, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const UpdateSettings = ({ close }) => {
   const initialRef = useRef();
+  const { t } = useTranslation();
+
   const {
     // infiniteUnlock,
     // setInfiniteUnlock,
@@ -60,7 +63,7 @@ export const UpdateSettings = ({ close }) => {
         px={2}
         fontSize="sm"
       >
-        <Text color="black"> Settings</Text>
+        <Text color="black">{t('settings')}</Text>
       </Button>
       <Modal
         isOpen={isOpen}
@@ -77,7 +80,7 @@ export const UpdateSettings = ({ close }) => {
             mx={{ base: 12, lg: 0 }}
           >
             <ModalHeader p={6}>
-              <Text>Settings</Text>
+              <Text>{t('settings')}</Text>
               <Image src={SettingsImage} w="100%" mt={4} />
             </ModalHeader>
             <ModalCloseButton
@@ -89,15 +92,8 @@ export const UpdateSettings = ({ close }) => {
             />
             <ModalBody px={6} py={0}>
               <Flex direction="column">
-                {/* <Text mb={2}>Infinite Unlock</Text>
-                <Switch
-                  mb={4}
-                  colorScheme="blue"
-                  isChecked={infiniteUnlock}
-                  onChange={e => setInfiniteUnlock(e.target.checked)}
-                /> */}
                 <Text mb={2}>
-                  Custom {getNetworkLabel(foreignChainId)} RPC URL
+                  {t('custom')} {getNetworkLabel(foreignChainId)} RPC URL
                 </Text>
                 <InputGroup mb={4} borderColor="#DAE3F0">
                   <Input
@@ -109,7 +105,7 @@ export const UpdateSettings = ({ close }) => {
                   />
                 </InputGroup>
                 <Text mb={2}>
-                  Custom {getNetworkLabel(homeChainId)} RPC URL
+                  {t('custom')} {getNetworkLabel(homeChainId)} RPC URL
                 </Text>
                 <InputGroup mb={4} borderColor="#DAE3F0">
                   <Input
@@ -120,7 +116,7 @@ export const UpdateSettings = ({ close }) => {
                     value={homeRPC}
                   />
                 </InputGroup>
-                <Text mb={2}>Turn Off Claim Notifications</Text>
+                <Text mb={2}>{t('turn_off_claim_notifications')}</Text>
                 <Switch
                   mb={4}
                   colorScheme="blue"
@@ -145,7 +141,7 @@ export const UpdateSettings = ({ close }) => {
                   disabled={!needsSaving}
                   w="100%"
                 >
-                  Save
+                  {t('save')}
                 </Button>
               </Flex>
             </ModalFooter>

@@ -4,8 +4,10 @@ import { useBridgeDirection } from 'hooks/useBridgeDirection';
 import { useRenderChain } from 'hooks/useRenderChain';
 import { WalletFilledIcon } from 'icons/WalletFilledIcon';
 import React, { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const ConnectWeb3 = () => {
+  const { t } = useTranslation();
   const {
     homeChainId,
     foreignChainId,
@@ -32,11 +34,14 @@ export const ConnectWeb3 = () => {
   const renderHelperBox = useCallback(
     () => (
       <Text color="greyText" mb={4} textAlign="center">
-        To access the {renderBridgeLabel()} G.U.Bridge NFT, please switch to
-        {renderChain(homeChainId)}or{renderChain(foreignChainId)}
+        {t('to_access_the')} {renderBridgeLabel()} G.U.Bridge NFT,{' '}
+        {t('please_switch_to')}
+        {renderChain(homeChainId)}
+        {t('or')}
+        {renderChain(foreignChainId)}
       </Text>
     ),
-    [homeChainId, foreignChainId, renderBridgeLabel, renderChain],
+    [t, renderBridgeLabel, renderChain, homeChainId, foreignChainId],
   );
 
   return (
@@ -65,17 +70,17 @@ export const ConnectWeb3 = () => {
       </Flex>
       {loading ? (
         <Text fontSize="xl" fontWeight="bold" mb={4}>
-          Connecting Wallet
+          {t('connecting_wallet')}
         </Text>
       ) : (
         <>
           <Text fontSize="xl" fontWeight="bold" mb={4}>
-            {account ? `Switch your network` : 'Connect Wallet'}
+            {account ? t('switch_your_network') : t('connect_wallet')}
           </Text>
 
           {!account ? (
             <Text color="greyText" mb={4} textAlign="center">
-              To get started, connect your wallet
+              {t('to_get_started_connect_your_wallet')}
             </Text>
           ) : (
             renderHelperBox()
@@ -84,7 +89,7 @@ export const ConnectWeb3 = () => {
       )}
       {account && !loading ? (
         <Button onClick={disconnect} colorScheme="blue" px={12}>
-          Disconnect
+          {t('disconnect')}
         </Button>
       ) : (
         <Button
@@ -93,7 +98,7 @@ export const ConnectWeb3 = () => {
           px={12}
           isLoading={loading}
         >
-          Connect
+          {t('connect')}
         </Button>
       )}
     </Flex>
