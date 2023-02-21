@@ -4,8 +4,10 @@ import { useBridgeDirection } from 'hooks/useBridgeDirection';
 import { useSwitchChain } from 'hooks/useSwitchChain';
 import { SwitchIcon } from 'icons/SwitchIcon';
 import React, { useCallback, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const SwitchButton = () => {
+  const { t } = useTranslation();
   const { providerChainId, isMetamask } = useWeb3Context();
   const { getBridgeChainId } = useBridgeDirection();
   const bridgeChainId = useMemo(
@@ -25,7 +27,7 @@ export const SwitchButton = () => {
     isMetamask && (isMobileBrowser ? !isDefaultChain : true);
 
   return displayButton ? (
-    <Tooltip label="Switch direction of bridge" closeOnClick={false}>
+    <Tooltip label={t('switch_direction_of_bridge')} closeOnClick={false}>
       <IconButton
         icon={<SwitchIcon boxSize="2rem" />}
         p="0.5rem"

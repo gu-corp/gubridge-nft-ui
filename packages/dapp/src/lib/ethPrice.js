@@ -1,5 +1,7 @@
 import { logDebug, logError } from 'lib/helpers';
 
+import i18n from '../i18n';
+
 const ethPriceFromApi = async fetchFn => {
   try {
     const response = await fetchFn();
@@ -7,15 +9,15 @@ const ethPriceFromApi = async fetchFn => {
     const oracleEthPrice = json.ethereum.usd;
 
     if (!oracleEthPrice) {
-      logError(`Response from Oracle didn't include eth price`);
+      logError(i18n.t('response_from_oracle_did_not_include_eth_price'));
       return null;
     }
 
-    logDebug('Updated ETH Price', { oracleEthPrice });
+    logDebug(i18n.t('updated_eth_price'), { oracleEthPrice });
 
     return oracleEthPrice;
   } catch (e) {
-    logError(`ETH Price API is not available. ${e.message}`);
+    logError(`${i18n.t('eth_price_api_is_not_available')} ${e.message}`);
   }
   return null;
 };

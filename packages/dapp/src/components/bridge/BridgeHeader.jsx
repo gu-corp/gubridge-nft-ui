@@ -8,8 +8,10 @@ import { useWeb3Context } from 'contexts/Web3Context';
 import { useBridgeDirection } from 'hooks/useBridgeDirection';
 import { getNetworkName } from 'lib/helpers';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const BridgeHeader = () => {
+  const { t } = useTranslation();
   const { providerChainId: chainId } = useWeb3Context();
   const { getBridgeChainId } = useBridgeDirection();
   const bridgeChainId = getBridgeChainId(chainId);
@@ -35,7 +37,7 @@ export const BridgeHeader = () => {
             maxW="9rem"
           >
             <Text color="greyText" fontSize="sm">
-              From
+              {t('from')}
             </Text>
             <Text fontWeight="500" fontSize="lg">
               {getNetworkName(chainId)}
@@ -73,7 +75,7 @@ export const BridgeHeader = () => {
             maxW="9rem"
           >
             <Text color="greyText" fontSize="sm">
-              To
+              {t('to')}
             </Text>
             <Text fontWeight="500" fontSize="lg" textAlign="right">
               {getNetworkName(bridgeChainId)}

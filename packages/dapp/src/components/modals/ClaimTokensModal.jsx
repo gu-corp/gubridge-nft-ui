@@ -25,11 +25,13 @@ import {
   getMedianHistoricalEthGasPrice,
 } from 'lib/gasPrice';
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
 const { DONT_SHOW_CLAIMS } = LOCAL_STORAGE_KEYS;
 
 export const ClaimTokensModal = () => {
+  const { t } = useTranslation();
   const { foreignChainId } = useBridgeDirection();
   const { transfers, loading } = useClaimableTransfers();
   const [isOpen, setOpen] = useState(false);
@@ -60,7 +62,7 @@ export const ClaimTokensModal = () => {
           mx={{ base: 12, lg: 0 }}
         >
           <ModalHeader p={6}>
-            <Text>Claim Your Tokens</Text>
+            <Text>{t('claim_your_tokens')}</Text>
             <Image src={ClaimTokensImage} w="100%" mt={4} />
           </ModalHeader>
           <ModalCloseButton
@@ -73,9 +75,9 @@ export const ClaimTokensModal = () => {
           <ModalBody px={6} py={0}>
             <VStack align="center" direction="column" spacing="4">
               <Box w="100%">
-                <Text as="span">{`You have `}</Text>
+                <Text as="span">{`${t('you_have')} `}</Text>
                 <Text as="b">{transfers ? transfers.length : 0}</Text>
-                <Text as="span">{` not claimed transactions `}</Text>
+                <Text as="span">{` ${t('not_claim_transactions')} `}</Text>
               </Box>
               {foreignChainId === 1 && medianGasPrice.gt(currentGasPrice) && (
                 <AuspiciousGasWarning
@@ -102,7 +104,7 @@ export const ClaimTokensModal = () => {
                 _hover={{ background: '#bfd3f2' }}
                 color="#687D9D"
               >
-                Cancel
+                {t('cancel')}
               </Button>
               <Link
                 to="/history"
@@ -117,7 +119,7 @@ export const ClaimTokensModal = () => {
                   mt={{ base: 2, md: 0 }}
                   w="100%"
                 >
-                  Claim
+                  {t('claim')}
                 </Button>
               </Link>
             </Flex>

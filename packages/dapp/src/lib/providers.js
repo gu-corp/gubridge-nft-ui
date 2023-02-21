@@ -3,6 +3,8 @@ import memoize from 'fast-memoize';
 import { LOCAL_STORAGE_KEYS } from 'lib/constants';
 import { getRPCUrl, logError } from 'lib/helpers';
 
+import i18n from '../i18n';
+
 const { MAINNET_RPC_URL, RINKEBY_RPC_URL, XDAI_RPC_URL } = LOCAL_STORAGE_KEYS;
 
 const RPC_URL = {
@@ -26,7 +28,10 @@ const checkRPCHealth = async url => {
       // eslint-disable-next-line no-underscore-dangle
       tempProvider._networkPromise,
       setTimeout(
-        () => Promise.reject(new Error('Network timeout')).catch(() => null),
+        () =>
+          Promise.reject(new Error(i18n.t('network_timeout'))).catch(
+            () => null,
+          ),
         NETWORK_TIMEOUT,
       ),
     ]);

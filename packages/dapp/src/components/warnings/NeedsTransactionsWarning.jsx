@@ -6,6 +6,7 @@ import { getEthereumPrice } from 'lib/ethPrice';
 import { getFastGasPrice } from 'lib/gasPrice';
 import { getNetworkName } from 'lib/helpers';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const LearnMoreLink = () => (
   <Link
@@ -18,6 +19,7 @@ const LearnMoreLink = () => (
 );
 
 export const NeedsTransactionsWarning = ({ noShadow = false }) => {
+  const { t } = useTranslation();
   const { homeChainId, foreignChainId } = useBridgeDirection();
   const GAS_COST = 260000;
 
@@ -51,10 +53,10 @@ export const NeedsTransactionsWarning = ({ noShadow = false }) => {
       >
         <AlertIcon minWidth="20px" />
         <Text fontSize="small">
-          {`The transfer process requires 2 transactions, one on ${getNetworkName(
-            homeChainId,
-          )} and one
-          on ${getNetworkName(foreignChainId)}. `}
+          {t('warning_bridging_home_to_foreign', {
+            homeNetworkName: getNetworkName(homeChainId),
+            foreignNetworkName: getNetworkName(foreignChainId),
+          })}
           {txCostText}
         </Text>
       </Alert>

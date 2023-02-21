@@ -15,9 +15,11 @@ import { useBridgeContext } from 'contexts/BridgeContext';
 import { useWeb3Context } from 'contexts/Web3Context';
 import { utils } from 'ethers';
 import React, { useCallback, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { theme } from 'theme';
 
 export const ActionButton = () => {
+  const { t } = useTranslation();
   const { providerChainId, ethersProvider, isGnosisSafe } = useWeb3Context();
   const { needsClaiming } = useBridgeContext();
   const { tokens, receiver } = useBridgeContext();
@@ -34,7 +36,7 @@ export const ActionButton = () => {
     if (unlocked) {
       buttonColor = needsClaiming ? 'purple.300' : 'blue.500';
       buttonHoverColor = needsClaiming ? 'purple.500' : 'blue.700';
-      buttonText = needsClaiming ? 'Request' : 'Transfer';
+      buttonText = needsClaiming ? t('request') : t('transfer');
       buttonIcon = TransferIcon;
     }
     return {
@@ -43,7 +45,7 @@ export const ActionButton = () => {
       text: buttonText,
       icon: buttonIcon,
     };
-  }, [unlocked, needsClaiming]);
+  }, [unlocked, needsClaiming, t]);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
   const toast = useToast();
@@ -63,14 +65,14 @@ export const ActionButton = () => {
 
   const valid = useCallback(() => {
     if (!ethersProvider) {
-      showError('Please connect wallet');
+      showError(t('please_connect_wallet'));
     } else if (receiver ? !utils.isAddress(receiver) : isGnosisSafe) {
-      showError(`Please specify a valid recipient address`);
+      showError(t('please_specify_a_valid_recipient_address'));
     } else if (tokens) {
       return true;
     }
     return false;
-  }, [ethersProvider, tokens, receiver, isGnosisSafe, showError]);
+  }, [t, ethersProvider, tokens, receiver, isGnosisSafe, showError]);
 
   const onClick = useCallback(() => {
     if (unlocked) {

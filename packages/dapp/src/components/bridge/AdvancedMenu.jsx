@@ -13,8 +13,10 @@ import { useBridgeContext } from 'contexts/BridgeContext';
 import { useWeb3Context } from 'contexts/Web3Context';
 import { utils } from 'ethers';
 import React, { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const AdvancedMenu = () => {
+  const { t } = useTranslation();
   const { isGnosisSafe } = useWeb3Context();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { receiver, setReceiver } = useBridgeContext();
@@ -52,7 +54,7 @@ export const AdvancedMenu = () => {
             <Input
               borderColor="#DAE3F0"
               bg="white"
-              placeholder="Recipient Address"
+              placeholder={t('recipient_address')}
               _placeholder={{ color: 'greyText' }}
               color="black"
               value={receiver}
@@ -83,7 +85,9 @@ export const AdvancedMenu = () => {
             px="2"
           >
             <AdvancedImage width="1.25rem" />
-            <Text ml={2}>{isMenuOpen ? 'Clear Recipient' : 'Advanced'}</Text>
+            <Text ml={2}>
+              {isMenuOpen ? t('clear_recipient') : t('advanced')}
+            </Text>
           </Button>
         )}
       </Flex>

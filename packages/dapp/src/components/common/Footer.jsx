@@ -11,9 +11,11 @@ import GUNetLogo from 'assets/gunet-logo.svg';
 import { GithubIcon } from 'icons/GithubIcon';
 import { TwitterIcon } from 'icons/TwitterIcon';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
 export const Footer = () => {
+  const { t } = useTranslation();
   const smallScreen = useBreakpointValue({ base: true, sm: false });
   return (
     <Flex
@@ -69,7 +71,7 @@ export const Footer = () => {
             _hover={{ color: 'blue.500' }}
             transition="0.25s"
           >
-            <Text style={{ marginRight: 5 }}>Built by</Text>
+            <Text style={{ marginRight: 5 }}>{t('built_by')}</Text>
             <Image
               minW="6rem"
               w="6rem"
