@@ -1,17 +1,17 @@
 {
   "response_from_oracle_did_not_include_eth_price": "Oracle からの応答には eth 価格が含まれていませんでした",
   "updated_eth_price": "更新された ETH 価格",
-  "eth_price_api_is_not_available": "ETH 価格 API は利用できません.",
-  "gas_price_oracle_not_available": "Gas Price Oracle は利用できません.",
-  "fetch_gas_price_from_ethgas_api_failed": "ethgasAPI からのガス価格の取得に失敗しました!",
-  "unable_to_perform_the_operation_reload_the_application_and_try_again": "操作を実行できません. アプリケーションを再ロードして、再試行してくださ.",
-  "transaction_was_replaced_by_another_reload_the_application_and_find_the_transaction_in_the_history_page": "トランザクションが別のものに置き換えられました. アプリケーションをリロードし、履歴ページでトランザクションを見つけます.",
+  "eth_price_api_is_not_available": "ETH 価格 API は利用できません。",
+  "gas_price_oracle_not_available": "Gas Price Oracle は利用できません。",
+  "fetch_gas_price_from_ethgas_api_failed": "ethgasAPI からのガス価格の取得に失敗しました。",
+  "unable_to_perform_the_operation_reload_the_application_and_try_again": "操作を実行できません.。アプリケーションを再ロードして、再試行してください。",
+  "transaction_was_replaced_by_another_reload_the_application_and_find_the_transaction_in_the_history_page": "トランザクションが別のものに置き換えられました。 アプリケーションをリロードし、履歴ページでトランザクションを見つけてください。",
   "transaction_was_replaced": "トランザクションが置き換えられました",
-  "transaction_to_the_bridge_is_found_but_oracles_confirmations_are_not_collected_yet_wait_for_a_minute_and_try_again": "ブリッジへのトランザクションは見つかりましたが、オラクルの確認はまだ収集されていません. 1 分ほど待ってから、もう一度お試しくださ.",
-  "it_is_not_a_bridge_transaction_specify_hash_of_a_transaction_sending_tokens_to_the_bridge.": "ブリッジ取引ではありません. ブリッジにトークンを送信するトランザクションのハッシュを指定します",
-  "invalid_hash": "無効なハッシュ.",
-  "no_transaction_found": "取引が見つかりません.",
-  "network_timeout": "ネットワークのタイムアウト",
+  "transaction_to_the_bridge_is_found_but_oracles_confirmations_are_not_collected_yet_wait_for_a_minute_and_try_again": "ブリッジへのトランザクションは見つかりましたが、オラクルの確認はまだ収集されていません。１分ほど待ってから、もう一度お試しください。",
+  "it_is_not_a_bridge_transaction_specify_hash_of_a_transaction_sending_tokens_to_the_bridge.": "ブリッジ取引ではありません。ブリッジにトークンを送信するトランザクションのハッシュを指定してください。",
+  "invalid_hash": "無効なハッシュです",
+  "no_transaction_found": "取引が見つかりません",
+  "network_timeout": "ネットワークがタイムアウトしました",
   "error_fetching_token_uri": "tokenUri のフェッチ中にエラーが発生しました",
-  "wrong_network_please_connect_your_wallet_to": "間違ったネットワーク。 ウォレットを接続してください"
+  "wrong_network_please_connect_your_wallet_to": "間違ったネットワークです。ウォレットを再接続してください。"
 }
