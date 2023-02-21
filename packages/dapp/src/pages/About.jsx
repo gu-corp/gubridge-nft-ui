@@ -6,7 +6,7 @@ export const About = () => {
   const { t } = useTranslation();
 
   return (
-    <Text fontSize={32} fontWeight="bold">
+    <Text fontSize="4xl" fontWeight="bold" marginTop="10">
       {t('version')}: {process.env.REACT_APP_VERSION}
     </Text>
   );
