@@ -6,7 +6,7 @@ import {
   Text,
   useBreakpointValue,
 } from '@chakra-ui/react';
-import Logo from 'assets/logo.svg';
+import Logo from 'assets/gubridge-nft-logo.svg';
 import { BridgeDropdown } from 'components/common/BridgeDropdown';
 import { LanguageDropdown } from 'components/common/LanguageDropdown';
 import { UpdateSettings } from 'components/common/UpdateSettings';
@@ -14,7 +14,6 @@ import { WalletSelector } from 'components/common/WalletSelector';
 import { useWeb3Context } from 'contexts/Web3Context';
 import { useBridgeDirection } from 'hooks/useBridgeDirection';
 import { HistoryIcon } from 'icons/HistoryIcon';
-import { PlusIcon } from 'icons/PlusIcon';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useHistory } from 'react-router-dom';
@@ -37,28 +36,6 @@ const HistoryLink = ({ close }) => {
       fontSize="sm"
     >
       <Text color="black">{t('history')}</Text>
-    </Button>
-  );
-};
-
-const CreateNFT = ({ close }) => {
-  const history = useHistory();
-  const { t } = useTranslation();
-
-  return (
-    <Button
-      variant="ghost"
-      color="grey"
-      _hover={{ color: 'blue.500', bgColor: 'blackAlpha.100' }}
-      onClick={() => {
-        history.push('/create');
-        close();
-      }}
-      leftIcon={<PlusIcon />}
-      px={2}
-      fontSize="sm"
-    >
-      <Text color="black">{t('create_nft')}</Text>
     </Button>
   );
 };
@@ -97,12 +74,12 @@ export const Header = () => {
         <Link to="/">
           <Flex justify="space-around" align="center">
             <Image
-              minW="3rem"
-              w="3rem"
+              minW="10rem"
+              w="10rem"
               src={Logo}
               mr={{ base: 4, md: 2, lg: 4 }}
             />
-            <Text fontWeight="bold">G.U.Bridge NFT</Text>
+            {/* <Text fontWeight="bold">G.U.Bridge NFT</Text> */}
           </Flex>
         </Link>
         <Button
@@ -145,7 +122,6 @@ export const Header = () => {
       >
         {valid && (
           <>
-            <CreateNFT close={() => setOpen(false)} />
             <HistoryLink close={() => setOpen(false)} />
             <UpdateSettings close={() => setOpen(false)} />
           </>

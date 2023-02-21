@@ -1,10 +1,15 @@
-import { Box, Flex, HStack, Text, useBreakpointValue } from '@chakra-ui/react';
+import {
+  Box,
+  Flex,
+  HStack,
+  Image,
+  Text,
+  useBreakpointValue,
+} from '@chakra-ui/react';
+import Logo from 'assets/gubridge-nft-logo.svg';
+import GUNetLogo from 'assets/gunet-logo.svg';
 import { GithubIcon } from 'icons/GithubIcon';
-import { GUBridgeIcon } from 'icons/GUBridgeIcon';
-import { RaidGuildIcon } from 'icons/RaidGuildIcon';
-import { TelegramIcon } from 'icons/TelegramIcon';
 import { TwitterIcon } from 'icons/TwitterIcon';
-import { XDaiIcon } from 'icons/XDaiIcon';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
@@ -31,23 +36,19 @@ export const Footer = () => {
             _hover={{ color: 'blue.500' }}
             transition="0.25s"
           >
-            <GUBridgeIcon w={6} />
+            <Image
+              minW="6rem"
+              w="6rem"
+              src={Logo}
+              mr={{ base: 4, md: 2, lg: 4 }}
+            />
           </Flex>
         </Link>
       )}
       <HStack spacing={4}>
-        <Box _hover={{ color: 'blue.500' }}>
-          <a
-            href="https://xdaichain.com"
-            rel="noreferrer noopener"
-            target="_blank"
-          >
-            <XDaiIcon />
-          </a>
-        </Box>
         <Box _hover={{ color: 'blue.500' }} transition="0.25s">
           <a
-            href="https://twitter.com/xdaichain"
+            href="https://twitter.com/G_U_net"
             rel="noreferrer noopener"
             target="_blank"
           >
@@ -56,16 +57,7 @@ export const Footer = () => {
         </Box>
         <Box _hover={{ color: 'blue.500' }} transition="0.25s">
           <a
-            href="https://t.me/xdaistable"
-            rel="noreferrer noopener"
-            target="_blank"
-          >
-            <TelegramIcon />
-          </a>
-        </Box>
-        <Box _hover={{ color: 'blue.500' }} transition="0.25s">
-          <a
-            href="https://github.com/xdaichain"
+            href="https://github.com/gulabs"
             rel="noreferrer noopener"
             target="_blank"
           >
@@ -73,18 +65,19 @@ export const Footer = () => {
           </a>
         </Box>
         <Box w="1px" h={5} background="grey" />
-        <a
-          href="https://raidguild.org"
-          rel="noreferrer noopener"
-          target="_blank"
-        >
+        <a href="https://www.gu.net/" rel="noreferrer noopener" target="_blank">
           <Flex
             align="center"
             _hover={{ color: 'blue.500' }}
             transition="0.25s"
           >
-            <Text>{t('built_by')}</Text>
-            <RaidGuildIcon boxSize={16} ml={2} />
+            <Text style={{ marginRight: 5 }}>{t('built_by')}</Text>
+            <Image
+              minW="6rem"
+              w="6rem"
+              src={GUNetLogo}
+              mr={{ base: 4, md: 2, lg: 4 }}
+            />
           </Flex>
         </a>
       </HStack>

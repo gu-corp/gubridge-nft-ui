@@ -55,23 +55,26 @@ export const uriToHttpAsArray = uri => {
         const newHash = hash.split('/')[1];
         return [
           `https://cloudflare-ipfs.com/ipfs/${newHash}`,
-          `https://ipfs.io/ipfs/${newHash}/`,
-          `https://ipfs.infura.io/ipfs/${newHash}/`,
-          `https://gateway.pinata.cloud/ipfs/${newHash}/`,
+          `https://4everland.io/ipfs/${newHash}`,
+          `https://ipfs-gateway.cloud/ipfs/${newHash}`,
+          `https://ipfs.io/ipfs/${newHash}`,
+          `https://gateway.pinata.cloud/ipfs/${newHash}`,
         ];
       }
       return [
         `https://cloudflare-ipfs.com/ipfs/${hash}`,
-        `https://ipfs.io/ipfs/${hash}/`,
-        `https://ipfs.infura.io/ipfs/${hash}/`,
-        `https://gateway.pinata.cloud/ipfs/${hash}/`,
+        `https://4everland.io/ipfs/${hash}`,
+        `https://ipfs-gateway.cloud/ipfs/${hash}`,
+        `https://ipfs.io/ipfs/${hash}`,
+        `https://gateway.pinata.cloud/ipfs/${hash}`,
       ];
     case 'ipns':
       return [
-        `https://cloudflare-ipfs.com/ipfs/${name}`,
-        `https://ipfs.infura.io/ipns/${name}/`,
-        `https://gateway.pinata.cloud/ipns/${name}/`,
-        `https://ipfs.io/ipns/${name}/`,
+        `https://cloudflare-ipfs.com/ipns/${name}`,
+        `https://4everland.io/ipns/${name}`,
+        `https://ipfs-gateway.cloud/ipns/${name}`,
+        `https://gateway.pinata.cloud/ipns/${name}`,
+        `https://ipfs.io/ipns/${name}`,
       ];
     default:
       return [];
