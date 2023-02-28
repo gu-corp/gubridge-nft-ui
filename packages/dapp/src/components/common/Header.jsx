@@ -79,7 +79,7 @@ export const Header = () => {
               src={Logo}
               mr={{ base: 4, md: 2, lg: 4 }}
             />
-            {/* <Text fontWeight="bold">G.U.Bridge NFT</Text> */}
+            {/* <Text fontWeight="bold">G.U.NFT Bridge</Text> */}
           </Flex>
         </Link>
         <Button

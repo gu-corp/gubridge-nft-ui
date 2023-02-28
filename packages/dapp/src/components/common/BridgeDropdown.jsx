@@ -49,7 +49,7 @@ export const BridgeDropdown = ({ close }) => {
         _hover={{ color: 'blue.500', bgColor: 'blackAlpha.100' }}
         p={2}
       >
-        <Text color="black" textTransform="uppercase" fontSize="sm">
+        <Text color="black" textTransform="capitalize" fontSize="sm">
           {networks[currentBridgeDirection].label}
         </Text>
       </MenuButton>
@@ -59,7 +59,7 @@ export const BridgeDropdown = ({ close }) => {
             value={key}
             onClick={setItem}
             key={key}
-            textTransform="uppercase"
+            textTransform="capitalize"
             fontWeight="700"
             fontSize="sm"
             justifyContent="center"

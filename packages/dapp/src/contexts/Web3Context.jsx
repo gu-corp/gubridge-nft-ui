@@ -27,7 +27,7 @@ export const useWeb3Context = () => useContext(Web3Context);
 
 const updateTitle = chainId => {
   const networkName = getNetworkName(chainId);
-  const defaultTitle = 'G.U.Bridge NFT';
+  const defaultTitle = 'G.U.NFT Bridge';
   if (!process.env.REACT_APP_TITLE) {
     document.title = defaultTitle;
   } else {
