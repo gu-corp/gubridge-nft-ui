@@ -1,6 +1,6 @@
 {
   "name": "@omnibridge-nft/dapp",
-  "version": "v1.0.0-alpha.7",
+  "version": "v1.0.0",
   "browserslist": {
     "production": [
       ">0.2%",

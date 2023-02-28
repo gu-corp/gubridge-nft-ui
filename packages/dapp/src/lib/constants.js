@@ -59,6 +59,15 @@ export const nativeCurrencies = {
     symbol: 'BNB',
     mode: 'NATIVE',
   },
+  81: {
+    chainId: 81,
+    decimals: 18,
+    logoURI: ETHER_CURRENCY_LOGO,
+    name: 'Japan Open Coin',
+    address: ADDRESS_ZERO,
+    symbol: 'JTH',
+    mode: 'NATIVE',
+  },
 };
 
 export const networkNames = {
@@ -71,6 +80,7 @@ export const networkNames = {
   99999: 'G.U.Sandbox',
   3: 'Ropsten',
   5: 'Görli',
+  81: 'Japan Open Chain',
 };
 
 export const networkLabels = {
@@ -83,6 +93,7 @@ export const networkLabels = {
   77: 'Sokol',
   100: 'xDai',
   99999: 'G.U.Sandbox',
+  81: 'JOC',
 };
 
 export const networkCurrencies = {
@@ -110,22 +121,47 @@ export const networkCurrencies = {
     name: 'xDai',
     symbol: 'xDai',
   },
+  99999: {
+    name: 'Sther',
+    symbol: 'STH',
+  },
+  81: {
+    name: 'Jther',
+    symbol: 'JTH',
+  },
 };
 
-const { REACT_APP_GUSANBOX_RPC_URL, REACT_APP_GOERLI_RPC_URL } = process.env;
+const {
+  REACT_APP_GUSANBOX_RPC_URL,
+  REACT_APP_GOERLI_RPC_URL,
+  REACT_APP_JOC_RPC_URL,
+  REACT_APP_ETHEREUM_RPC_URL,
+} = process.env;
 
 export const chainUrls = {
   99999: {
-    rpc: REACT_APP_GUSANBOX_RPC_URL.split(' '),
+    rpc: REACT_APP_GUSANBOX_RPC_URL?.split(' '),
     explorer: 'https://sandbox1.japanopenchain.org',
     chainId: 99999,
     name: networkNames[99999],
   },
   5: {
-    rpc: REACT_APP_GOERLI_RPC_URL.split(' '),
+    rpc: REACT_APP_GOERLI_RPC_URL?.split(' '),
     explorer: 'https://goerli.etherscan.io',
     chainId: 5,
     name: networkNames[5],
+  },
+  81: {
+    rpc: REACT_APP_JOC_RPC_URL?.split(' '),
+    explorer: 'https://mainnet.japanopenchain.org',
+    chainId: 81,
+    name: networkNames[81],
+  },
+  1: {
+    rpc: REACT_APP_ETHEREUM_RPC_URL?.split(' '),
+    explorer: 'https://etherscan.io',
+    chainId: 1,
+    name: networkNames[1],
   },
 };
 

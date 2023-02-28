@@ -13,7 +13,10 @@
     "deploy-goerli-stage": "graph deploy --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/ --debug --access-token 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 kumikotamura/gu-nft-eip721-staging-v2",
     "prepare-gusandbox": "mustache config/gusandbox-stage.json subgraph.template.yaml > subgraph.yaml",
     "create-gusandbox": "graph create kumikotamura/gu-nft-eip721-staging-v2 --node http://34.85.33.121:8020",
-    "deploy-gusandbox": "graph deploy kumikotamura/gu-nft-eip721-staging-v2 --node http://34.85.33.121:8020 --ipfs http://34.85.33.121:5001"
+    "deploy-gusandbox": "graph deploy kumikotamura/gu-nft-eip721-staging-v2 --node http://34.85.33.121:8020 --ipfs http://34.85.33.121:5001",
+    "prepare-joc": "mustache config/joc.json subgraph.template.yaml > subgraph.yaml",
+    "create-joc": "graph create gulaps/gubridge-eip721 --node https://graphnode-admin.mainnet.japanopenchain.org",
+    "deploy-joc": "graph deploy gulaps/gubridge-eip721 --node https://graphnode-admin.mainnet.japanopenchain.org --ipfs https://graphnode-ipfs.mainnet.japanopenchain.org"
   },
   "license": "MIT",
   "devDependencies": {
