@@ -10,7 +10,7 @@
   "advanced": "Advanced",
   "clear_recipient": "Clear Recipient",
   "recipient_address": "Recipient Address",
-  "connected_to": "Connected to",
+  "connected_to": "Connected to: ",
   "disconnect": "Disconnect",
   "custom": "Custom",
   "turn_off_claim_notifications": "Turn Off Claim Notifications",

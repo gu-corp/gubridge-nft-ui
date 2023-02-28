@@ -70,7 +70,7 @@ const GUSANDBOX_GOERLI_BRIDGE_STAGE_CONFIG = {
 };
 
 const JOC_ETHEREUM_BRIDGE_CONFIG = {
-  label: 'JapanOpenChain⥊Ethereum',
+  label: 'Japan Open Chain⥊Ethereum',
   homeChainId: 81,
   foreignChainId: 1,
   foreignMediatorAddress:
