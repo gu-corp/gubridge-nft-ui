@@ -13,7 +13,7 @@ import i18n from '../i18n';
 export const getWalletProviderName = provider =>
   provider?.connection?.url || null;
 
-export const getNativeCurrency = chainId => nativeCurrencies[chainId || 99999];
+export const getNativeCurrency = chainId => nativeCurrencies[chainId];
 
 export const getNetworkName = chainId =>
   networkNames[chainId] || i18n.t('unknown_network');
@@ -28,9 +28,7 @@ export const getNetworkCurrency = chainId =>
   };
 
 export const getRPCUrl = (chainId, returnAsArray = false) =>
-  returnAsArray
-    ? chainUrls[chainId || 99999].rpc
-    : chainUrls[chainId || 99999].rpc[0];
+  returnAsArray ? chainUrls[chainId].rpc : chainUrls[chainId]?.rpc?.[0];
 
 export const getExplorerUrl = chainId =>
   (chainUrls[chainId] || chainUrls[99999]).explorer;

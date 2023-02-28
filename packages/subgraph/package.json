@@ -35,7 +35,10 @@
     "deploy-goerli-gusandbox-stage": "graph deploy kumikotamura/gu-nft-subgraph-staging --debug --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
     "prepare-gusandbox-goerli-stage": "mustache config/gusandbox-goerli-stage.json subgraph.template.yaml > subgraph.yaml",
     "create-gusandbox-goerli-stage": "graph create kumikotamura/gu-nft-subgraph-staging --node http://34.85.33.121:8020",
-    "deploy-gusandbox-goerli-stage": "graph deploy kumikotamura/gu-nft-subgraph-staging --ipfs http://34.85.33.121:5001 --node http://34.85.33.121:8020"
+    "deploy-gusandbox-goerli-stage": "graph deploy kumikotamura/gu-nft-subgraph-staging --ipfs http://34.85.33.121:5001 --node http://34.85.33.121:8020",
+    "prepare-joc": "mustache config/joc-ethereum.json subgraph.template.yaml > subgraph.yaml",
+    "create-joc": "graph create gulaps/gubridge-joc-ethereum --node https://graphnode-admin.mainnet.japanopenchain.org",
+    "deploy-joc": "graph deploy gulaps/gubridge-joc-ethereum --node https://graphnode-admin.mainnet.japanopenchain.org --ipfs https://graphnode-ipfs.mainnet.japanopenchain.org"
   },
   "devDependencies": {
     "mustache": "^4.2.0"

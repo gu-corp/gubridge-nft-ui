@@ -1,6 +1,7 @@
 export const GUSANDBOX_GOERLI_DEV_BRIDGE = 'gusandbox-goerli-dev';
 export const GUSANDBOX_GOERLI_TEST_BRIDGE = 'gusandbox-goerli-test';
 export const GUSANDBOX_GOERLI_STAGE_BRIDGE = 'gusandbox-goerli-stage';
+export const JOC_ETHEREUM_BRIDGE = 'joc-ethereum';
 
 const GUSANDBOX_GOERLI_BRIDGE_DEV_CONFIG = {
   label: 'G.U.Sandbox⥊Görli',
@@ -68,6 +69,28 @@ const GUSANDBOX_GOERLI_BRIDGE_STAGE_CONFIG = {
   tokenFactoryAddress: '0x284fB7193f686f7c9d3Aa8E1Bb1B68e81C85C7A3',
 };
 
+const JOC_ETHEREUM_BRIDGE_CONFIG = {
+  label: 'JapanOpenChain⥊Ethereum',
+  homeChainId: 81,
+  foreignChainId: 1,
+  foreignMediatorAddress:
+    '0x0617af609F19A8a3C7b2A1779C99DE1de62167E7'.toLowerCase(),
+  homeMediatorAddress:
+    '0xD29F62EDc919c1378248262392F1ffeb441a3e79'.toLowerCase(),
+  foreignAmbAddress: '0x2deC96c28A6e991BAc485D2e191abB91da6F8148'.toLowerCase(),
+  homeAmbAddress: '0x2deC96c28A6e991BAc485D2e191abB91da6F8148'.toLowerCase(),
+  ambLiveMonitorPrefix: 'https://alm.nft-bridge.gu.net',
+  foreignBridgeSubgraph: '23636/gubridge-joc-ethereum/v0.0.1',
+  homeBridgeSubgraph: 'gulaps/gubridge-joc-ethereum',
+  home721Subgraph: 'gulaps/gubridge-eip721',
+  foreign721Subgraph: '23636/gubridge-eip721/v0.0.1',
+  home1155Subgraph: '',
+  foreign1155Subgraph: '',
+  claimDisabled: false,
+  tokensClaimDisabled: [],
+  tokenFactoryAddress: '0x9C7c06b18066d73248e6FEa57CD0c1557D2cAbF1',
+};
+
 const ENABLED_BRIDGES = process.env.REACT_APP_ENABLED_BRIDGES.split(' ').map(
   b => b.toLowerCase(),
 );
@@ -76,6 +99,7 @@ const bridgeInfo = {
   [GUSANDBOX_GOERLI_DEV_BRIDGE]: GUSANDBOX_GOERLI_BRIDGE_DEV_CONFIG,
   [GUSANDBOX_GOERLI_TEST_BRIDGE]: GUSANDBOX_GOERLI_BRIDGE_TEST_CONFIG,
   [GUSANDBOX_GOERLI_STAGE_BRIDGE]: GUSANDBOX_GOERLI_BRIDGE_STAGE_CONFIG,
+  [JOC_ETHEREUM_BRIDGE]: JOC_ETHEREUM_BRIDGE_CONFIG,
 };
 
 const getNetworkConfig = bridges => {

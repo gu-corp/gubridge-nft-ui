@@ -51,7 +51,10 @@ export const useBridgeDirection = () => {
       if (chainId === 99999) {
         return `https://graphnode.gulabs.tk/subgraphs/name/${subgraphName}`;
       }
-      return `https://api.thegraph.com/subgraphs/name/${subgraphName}`;
+      if (chainId === 81) {
+        return `https://graphnode.mainnet.japanopenchain.org/subgraphs/name/${subgraphName}`;
+      }
+      return `https://api.studio.thegraph.com/query/${subgraphName}`;
     },
     [foreignBridgeSubgraph, homeChainId, homeBridgeSubgraph],
   );
@@ -63,7 +66,10 @@ export const useBridgeDirection = () => {
       if (chainId === 99999) {
         return `https://graphnode.gulabs.tk/subgraphs/name/${subgraphName}`;
       }
-      return `https://api.thegraph.com/subgraphs/name/${subgraphName}`;
+      if (chainId === 81) {
+        return `https://graphnode.mainnet.japanopenchain.org/subgraphs/name/${subgraphName}`;
+      }
+      return `https://api.studio.thegraph.com/query/${subgraphName}`;
     },
     [foreign721Subgraph, homeChainId, home721Subgraph],
   );
@@ -75,7 +81,10 @@ export const useBridgeDirection = () => {
       if (chainId === 99999) {
         return `https://graphnode.gulabs.tk/subgraphs/name/${subgraphName}`;
       }
-      return `https://api.thegraph.com/subgraphs/name/${subgraphName}`;
+      if (chainId === 81) {
+        return `https://graphnode.mainnet.japanopenchain.org/subgraphs/name/${subgraphName}`;
+      }
+      return `https://api.studio.thegraph.com/query/${subgraphName}`;
     },
     [foreign1155Subgraph, homeChainId, home1155Subgraph],
   );
