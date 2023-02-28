@@ -121,6 +121,14 @@ export const networkCurrencies = {
     name: 'xDai',
     symbol: 'xDai',
   },
+  99999: {
+    name: 'Sther',
+    symbol: 'STH',
+  },
+  81: {
+    name: 'Jther',
+    symbol: 'JTH',
+  },
 };
 
 const {
