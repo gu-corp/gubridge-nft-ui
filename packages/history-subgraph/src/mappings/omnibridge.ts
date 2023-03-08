@@ -24,7 +24,6 @@ export function handleBridgeTransfer(event: TokensBridged): void {
   execution.values = event.params.values;
   execution.messageId = event.params.messageId;
   execution.save();
-  log.debug('TokensBridged token {}', [execution.token.toHexString()]);
 }
 
 export function handleInitiateTransfer(event: TokensBridgingInitiated): void {
@@ -54,5 +53,4 @@ export function handleInitiateTransfer(event: TokensBridgingInitiated): void {
   request.values = event.params.values;
   request.messageId = event.params.messageId;
   request.save();
-  log.debug('TokensBridgingInitiated token {}', [request.token.toHexString()]);
 }
