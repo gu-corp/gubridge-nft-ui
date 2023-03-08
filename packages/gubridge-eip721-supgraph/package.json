@@ -4,24 +4,18 @@
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
-    "prepare-goerli": "mustache config/goerli.json subgraph.template.yaml > subgraph.yaml",
-    "create": "graph create cuonghx1108/gu-bridge-eip721-dev-1 --node http://34.85.33.121:8020",
-    "deploy": "graph deploy cuonghx1108/gu-bridge-eip721-dev-1 --node http://34.85.33.121:8020 --ipfs http://34.85.33.121:5001",
-    "remove": "graph remove cuonghx1108/gu-bridge-eip721-dev-1 --node http://34.85.33.121:8020",
-    "deploy-goerli": "graph deploy --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/ --debug --access-token f3862233d5a74dcf8c20028b29b37a33 cuonghx1108/gu-bridge-eip721-dev-1",
-    "prepare-goerli-stage": "mustache config/goerli-stage.json subgraph.template.yaml > subgraph.yaml",
-    "deploy-goerli-stage": "graph deploy --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/ --debug --access-token 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 kumikotamura/gu-nft-eip721-staging-v2",
-    "prepare-gusandbox": "mustache config/gusandbox-stage.json subgraph.template.yaml > subgraph.yaml",
-    "create-gusandbox": "graph create kumikotamura/gu-nft-eip721-staging-v2 --node http://34.85.33.121:8020",
-    "deploy-gusandbox": "graph deploy kumikotamura/gu-nft-eip721-staging-v2 --node http://34.85.33.121:8020 --ipfs http://34.85.33.121:5001",
-    "prepare-joc": "mustache config/joc.json subgraph.template.yaml > subgraph.yaml",
-    "create-joc": "graph create gulaps/gubridge-eip721 --node https://graphnode-admin.mainnet.japanopenchain.org",
-    "deploy-joc": "graph deploy gulaps/gubridge-eip721 --node https://graphnode-admin.mainnet.japanopenchain.org --ipfs https://graphnode-ipfs.mainnet.japanopenchain.org"
+    "auth:studio": "graph auth --studio $GRAPH_STUDIO_ACCESS_TOKEN",
+    "auth:hosted-service": "graph auth --product hosted-service $GRAPH_HOSTED_SERVICE_ACCESS_TOKEN",
+    "generate": "mustache $CONFIG_PATH subgraph.template.yaml > subgraph.yaml",
+    "deploy:studio": "graph deploy --studio $SUBGRAPH_NAME",
+    "deploy:hosted-service": "graph deploy --product hosted-service $SUBGRAPH_NAME",
+    "deploy:local": "graph deploy $SUBGRAPH_NAME --node $SUBGRAPH_NODE --ipfs $SUBGRAPH_IPFS",
+    "create:local": "graph create $SUBGRAPH_NAME --node $SUBGRAPH_NODE"
   },
   "license": "MIT",
   "devDependencies": {
-    "@graphprotocol/graph-cli": "^0.20.0",
-    "@graphprotocol/graph-ts": "^0.18.1",
+    "@graphprotocol/graph-cli": "0.42.2",
+    "@graphprotocol/graph-ts": "0.29.1",
     "mustache": "^4.2.0"
   }
 }
