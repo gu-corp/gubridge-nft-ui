@@ -1,4 +1,4 @@
-specVersion: 0.0.2
+specVersion: 0.0.5
 description: Subgraph that indexes the omnibridge nft transfers
 repository: https://github.com/omni/omnibridge-nft-ui
 schema:
@@ -15,7 +15,7 @@ dataSources:
       startBlock: {{startBlock}}
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.4
+      apiVersion: 0.0.7
       abis:
         - name: AMB
           file: ./src/abis/amb.json
@@ -44,7 +44,7 @@ dataSources:
       startBlock: {{startBlock}}
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.4
+      apiVersion: 0.0.7
       abis:
         - name: AMB
           file: ./src/abis/amb.json

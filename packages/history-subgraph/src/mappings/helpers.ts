@@ -74,7 +74,7 @@ var handleNativeNFT = Bytes.fromHexString('0x6ca48357') as Bytes;
 var handleBridgedNFT = Bytes.fromHexString('0xb701e094') as Bytes;
 var deployAndHandleBridgedNFT = Bytes.fromHexString('0xf92d7468') as Bytes;
 
-export function decodeRecipient(encodedData: Bytes): Bytes {
+export function decodeRecipient(encodedData: Bytes): Bytes | null {
   let data = encodedData.subarray(HEADER_LENGTH + METHOD_SIGNATURE_LENGTH);
 
   let method = encodedData.subarray(

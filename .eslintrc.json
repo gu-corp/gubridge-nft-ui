@@ -16,7 +16,7 @@
     "simple-import-sort/exports": "warn"
   },
   "ignorePatterns": [
-    "packages/subgraph/**",
+    "packages/history-subgraph/**",
     "packages/gubridge-eip721-supgraph/**"
   ]
 }
