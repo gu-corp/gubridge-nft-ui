@@ -84,5 +84,6 @@
   "no_transaction_found": "取引が見つかりません",
   "network_timeout": "ネットワークがタイムアウトしました",
   "error_fetching_token_uri": "tokenUri のフェッチ中にエラーが発生しました",
-  "wrong_network_please_connect_your_wallet_to": "間違ったネットワークです。ウォレットを再接続してください。"
+  "wrong_network_please_connect_your_wallet_to": "間違ったネットワークです。ウォレットを再接続してください。",
+  "about": "ージについて"
 }

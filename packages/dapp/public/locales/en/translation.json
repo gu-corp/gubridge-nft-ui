@@ -84,5 +84,6 @@
   "no_transaction_found": "No transaction found.",
   "network_timeout": "Network timeout",
   "error_fetching_token_uri": "Error fetching tokenUri",
-  "wrong_network_please_connect_your_wallet_to": "Wrong network. Please connect your wallet to"
+  "wrong_network_please_connect_your_wallet_to": "Wrong network. Please connect your wallet to",
+  "about": "About"
 }
