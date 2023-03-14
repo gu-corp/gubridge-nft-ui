@@ -29,7 +29,7 @@ export const Footer = () => {
       color="grey"
     >
       {!smallScreen && (
-        <Link to="/" display={{ base: 'none', sm: 'block' }}>
+        <Link to="/bridge" display={{ base: 'none', sm: 'block' }}>
           <Flex
             justify="space-around"
             align="center"

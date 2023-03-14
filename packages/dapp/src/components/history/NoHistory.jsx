@@ -66,7 +66,7 @@ export const NoHistory = () => {
       <Text fontWeight="bold" mt={8}>
         {t('no_history_found')}
       </Text>
-      <Link to="/">
+      <Link to="/bridge">
         <Button colorScheme="blue" mt={4}>
           {t('make_transfer')}
         </Button>

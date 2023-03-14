@@ -71,7 +71,7 @@ export const Header = () => {
       zIndex={isOpen ? 5 : undefined}
     >
       <Flex justify="space-between" h={20} align="center">
-        <Link to="/">
+        <Link to="/bridge">
           <Flex justify="space-around" align="center">
             <Image
               minW="10rem"
