@@ -8,9 +8,9 @@ import {
 
 import { Token } from '../types/Omnibridge/Token';
 
-export var ADDRESS_ZERO: Address = Address.fromHexString(
-  '0x0000000000000000000000000000000000000000',
-) as Address;
+export var ADDRESS_ZERO: Address = changetype<Address>(
+  Address.fromHexString('0x0000000000000000000000000000000000000000'),
+);
 
 export function getDirection(): String {
   let network = dataSource.network();
@@ -70,9 +70,9 @@ var METHOD_SIGNATURE_LENGTH = 4;
 var PADDED_LENGTH = 32;
 var ADDRESS_LENGTH = 20;
 
-var handleNativeNFT = Bytes.fromHexString('0x6ca48357') as Bytes;
-var handleBridgedNFT = Bytes.fromHexString('0xb701e094') as Bytes;
-var deployAndHandleBridgedNFT = Bytes.fromHexString('0xf92d7468') as Bytes;
+var handleNativeNFT = Bytes.fromHexString('0x6ca48357');
+var handleBridgedNFT = Bytes.fromHexString('0xb701e094');
+var deployAndHandleBridgedNFT = Bytes.fromHexString('0xf92d7468');
 
 export function decodeRecipient(encodedData: Bytes): Bytes | null {
   let data = encodedData.subarray(HEADER_LENGTH + METHOD_SIGNATURE_LENGTH);
@@ -80,24 +80,28 @@ export function decodeRecipient(encodedData: Bytes): Bytes | null {
   let method = encodedData.subarray(
     HEADER_LENGTH,
     HEADER_LENGTH + METHOD_SIGNATURE_LENGTH,
-  ) as Bytes;
+  );
 
   if (method == handleNativeNFT || method == handleBridgedNFT) {
     // _token, 0 - 32
     // _receiver, 32 - 64
-    return data.subarray(
-      2 * PADDED_LENGTH - ADDRESS_LENGTH, // removing padded zeros
-      2 * PADDED_LENGTH,
-    ) as Bytes;
+    return changetype<Bytes>(
+      data.subarray(
+        2 * PADDED_LENGTH - ADDRESS_LENGTH, // removing padded zeros
+        2 * PADDED_LENGTH,
+      ),
+    );
   } else if (method == deployAndHandleBridgedNFT) {
     // _token, 0 - 32
     // name, 32 - 64
     // symbol, 64 - 96
     // _receiver, 128 - 160
-    return data.subarray(
-      4 * PADDED_LENGTH - ADDRESS_LENGTH, // removing padded zeros
-      4 * PADDED_LENGTH,
-    ) as Bytes;
+    return changetype<Bytes>(
+      data.subarray(
+        4 * PADDED_LENGTH - ADDRESS_LENGTH, // removing padded zeros
+        4 * PADDED_LENGTH,
+      ),
+    );
   }
   return null;
 }

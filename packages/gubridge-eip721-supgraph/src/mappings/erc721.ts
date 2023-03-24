@@ -8,8 +8,6 @@ import {
   OwnerPerTokenContract,
 } from '../../generated/schema';
 
-// import { log } from '@graphprotocol/graph-ts';
-
 let ZERO_ADDRESS_STRING = '0x0000000000000000000000000000000000000000';
 
 let ZERO_ADDRESS: Bytes = Bytes.fromHexString(ZERO_ADDRESS_STRING) as Bytes;
@@ -21,7 +19,7 @@ function toBytes(hexString: String): Bytes {
   for (let i = 0; i < hexString.length; i += 2) {
     result[i / 2] = parseInt(hexString.substr(i, 2), 16) as u32;
   }
-  return result as Bytes;
+  return changetype<Bytes>(result);
 }
 
 function supportsInterface(
