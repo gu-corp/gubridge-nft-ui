@@ -10,13 +10,12 @@ import { Home } from './pages/Home';
 export const Routes = () => (
   <Switch>
     <Route exact path="/about" component={About} />
-    <Route>
+    <Route exact path={['/bridge', '/history', '/create']}>
       <Switch>
         <Layout>
           <Route exact path="/bridge" component={Home} />
           <Route exact path="/history" component={History} />
           <Route exact path="/create" component={CreateNFT} />
-          <Redirect to="/bridge" />
         </Layout>
       </Switch>
     </Route>
