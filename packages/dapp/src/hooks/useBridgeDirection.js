@@ -49,7 +49,7 @@ export const useBridgeDirection = () => {
       const subgraphName =
         homeChainId === chainId ? homeBridgeSubgraph : foreignBridgeSubgraph;
       if (chainId === 99999) {
-        return `https://graphnode.gulabs.tk/subgraphs/name/${subgraphName}`;
+        return `https://graphnode.sandbox1.japanopenchain.org/subgraphs/name/${subgraphName}`;
       }
       if (chainId === 81) {
         return `https://graphnode.mainnet.japanopenchain.org/subgraphs/name/${subgraphName}`;
@@ -67,7 +67,7 @@ export const useBridgeDirection = () => {
       const subgraphName =
         homeChainId === chainId ? home721Subgraph : foreign721Subgraph;
       if (chainId === 99999) {
-        return `https://graphnode.gulabs.tk/subgraphs/name/${subgraphName}`;
+        return `https://graphnode.sandbox1.japanopenchain.org/subgraphs/name/${subgraphName}`;
       }
       if (chainId === 81) {
         return `https://graphnode.mainnet.japanopenchain.org/subgraphs/name/${subgraphName}`;
@@ -85,7 +85,7 @@ export const useBridgeDirection = () => {
       const subgraphName =
         homeChainId === chainId ? home1155Subgraph : foreign1155Subgraph;
       if (chainId === 99999) {
-        return `https://graphnode.gulabs.tk/subgraphs/name/${subgraphName}`;
+        return `https://graphnode.sandbox1.japanopenchain.org/subgraphs/name/${subgraphName}`;
       }
       if (chainId === 81) {
         return `https://graphnode.mainnet.japanopenchain.org/subgraphs/name/${subgraphName}`;
